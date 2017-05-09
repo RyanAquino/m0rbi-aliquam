@@ -33,7 +33,7 @@ public class MessageServlet extends HttpServlet {
          try {
             Class.forName("com.mysql.jdbc.Driver");
             
-            String connUrl = "jdbc:mysql://localhost:3306/webtek?user=root&password=";
+            String connUrl = "jdbc:mysql://localhost:3306/tutorial?user=root&password=";
             Connection conn = DriverManager.getConnection(connUrl);
             
             String sql = "SELECT * FROM message WHERE firstname = ?";

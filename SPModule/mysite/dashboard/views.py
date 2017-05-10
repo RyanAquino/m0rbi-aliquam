@@ -1,7 +1,10 @@
 from django.http import HttpResponse
-from .models import Sp
+from .models import Sp, Request
 #from django.db import connection
 from django.template import loader
+from django.shortcuts import render, get_object_or_404
+from django.forms.models import model_to_dict
+from django.core.urlresolvers import reverse
 
 #def my_custom_sql(self):
 #    with connection.cursor() as cursor:
@@ -11,12 +14,25 @@ from django.template import loader
 #    return row
 
 def index(request):
-    all_sp = Sp.objects.all()
     template = loader.get_template('dashboard/index.html')
-    context = {
-        'all_sp': all_sp,
-    }
-    return HttpResponse(template.render(context, request))
+    spArray = Sp.objects.filter(sp_id=1).values()[0]
+    #spArray = {
+    #    'lastname': 'Dela Cruz',
+    #    'firstname': 'Juan',
+    #}
+    return HttpResponse(template.render(spArray, request))
 
+def profile_view(request):
+    return render(request, 'profilePage/profile.html')
 
-# Create your views here.
+def request_view(request):
+    return render(request, 'request/requests.html')
+
+def messages_view(request):
+    return render(request, 'messages/messages.html')
+
+def transactions_view(request):
+    return render(request, 'transactions/transactions.html')
+
+def stats_view(request):
+    return render(request, 'stats/stats.html')

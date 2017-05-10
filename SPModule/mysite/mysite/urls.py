@@ -18,6 +18,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
-    url(r'^dashboard/', include('dashboard.urls')),
+    url(r'^dashboard/', include('dashboard.urls',  namespace='dashboard')),
+    url(r'^profilePage/', include('profilePage.urls',  namespace='profilePage')),
+    url(r'^request/', include('request.urls',  namespace='request')),
+    url(r'^messages/', include('messages.urls',  namespace='messages')),
+    url(r'^transactions/', include('transactions.urls',  namespace='transactions')),
+    url(r'^stats/', include('stats.urls',  namespace='stats')),
     url(r'^admin/', admin.site.urls),
 ]

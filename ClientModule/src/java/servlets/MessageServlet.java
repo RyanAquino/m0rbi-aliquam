@@ -68,14 +68,7 @@ public class MessageServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html");
 
-            out.printf(
-                    "<!DOCTYPE html>\n<html>\n<head>\n"
-                    + "    <title>Servlet Demo: Handling Request Parameters (GET)</title>\n"
-                    + "    <style>\n        h1 { color: %s; }\n    </style>\n"
-                    + "</head>\n<body>\n"
-                    + "    <h1>Hello, %s!</h1>\n"
-                    + "</body>\n</html>\n",
-                    color, name);
+ 
         }
     }
     

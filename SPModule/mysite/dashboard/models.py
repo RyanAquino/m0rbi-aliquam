@@ -122,6 +122,9 @@ class Sp(models.Model):
     email = models.CharField(max_length=45)
     address = models.CharField(max_length=45)
     log_status = models.CharField(max_length=6)
+    
+    #def _str__(self):
+    #    return self.lastname + ', ' + self.firstname
 
     class Meta:
         managed = False

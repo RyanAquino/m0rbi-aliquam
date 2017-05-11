@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 05 12, 17, 7:14:29 AM
+    Author     : Mai Radie
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -28,6 +28,8 @@ public class Login extends HttpServlet {
 
         HttpSession session = request.getSession(true);
 
+        // assuming that "user" is the parameter of login
+        
         String user = request.getParameter("user");
 
         session.setAttribute("user", user);

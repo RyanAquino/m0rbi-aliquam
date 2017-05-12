@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,22 +25,26 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/MessageServlet"})
 public class MessageServlet extends HttpServlet {
 
-    
-      protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
 
+        if (session == null || session.getAttribute("user") == null) {
+            String url = response.encodeRedirectURL("NoSession.jsp");
+            response.sendRedirect(url);
+        }
         String name = request.getParameter("sp_name");
-       
-         try {
+
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            
+
             String connUrl = "jdbc:mysql://localhost:3306/tutorial?user=root&password=";
             Connection conn = DriverManager.getConnection(connUrl);
-            
+
             String sql = "SELECT * FROM message WHERE firstname = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, name);
-            
+
             ResultSet rs = ps.executeQuery();
             if (rs.first()) {
                 byte[] imageData = rs.getBytes("data");
@@ -55,7 +60,7 @@ public class MessageServlet extends HttpServlet {
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
-            
+
             rs.close();
             ps.close();
             conn.close();
@@ -68,8 +73,7 @@ public class MessageServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html");
 
- 
         }
     }
-    
+
 }

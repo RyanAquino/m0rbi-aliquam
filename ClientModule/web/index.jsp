@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<c:if test="${user == null}">
+    <c:redirect url="NoSession.jsp"/>
+</c:if>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,28 +63,7 @@
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header">
-                <div class="top-left-part">
-                    <!-- Logo -->
-                    <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="../plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
-                     </b>
-                        <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                     </span> </a>
-                </div>
-                <!-- /Logo -->
-                <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li>
-                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
-                    </li>
-                    <li>
-                        <a class="profile-pic" href="#"> <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Client</b></a>
-                    </li>
-                </ul>
-            </div>
+          <jsp:include page="WEB-INF/fragments/header.html"/>
             <!-- /.navbar-header -->
             <!-- /.navbar-top-links -->
             <!-- /.navbar-static-side -->
@@ -93,26 +77,7 @@
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
                 </div>
-                <ul class="nav" id="side-menu">
-                    <li style="padding: 70px 0 0;">
-                        <a href="index.jsp" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="messages.jsp" class="waves-effect"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>Messages</a>
-                    </li>
-                    <li>
-                        <a href="profile.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile</a>
-                    </li>
-                    <li>
-                        <a href="profile.jsp" class="waves-effect"><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Notifications</a>
-                    </li>
-                    <li>
-                        <a href="profile.jsp" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Transactions</a>
-                    </li>
-                    <li>
-                        <a href="calendar.jsp" class="waves-effect"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>Calendar</a>
-                    </li>
-                </ul>
+              <jsp:include page="WEB-INF/fragments/nav.html"/>
             </div>
             
         </div>

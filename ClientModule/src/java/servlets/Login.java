@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 /**
  *
  * @author Mai Radie
@@ -29,6 +30,12 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession(true);
         
         String user = request.getParameter("user");
+        
+        session.setAttribute("user", user);
+        
+        String url = response.encodeRedirectURL("index.jsp");
+        response.sendRedirect(url);
+        
         
         
        

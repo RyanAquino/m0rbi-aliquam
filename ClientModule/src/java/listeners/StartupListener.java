@@ -41,17 +41,27 @@ public class StartupListener {
             if (rs.first()) {
                 do {
                     ServiceProvider sp = new ServiceProvider(
-                    rs.getString("spId"),
-                    rs.getString("reg_status"),
-                    rs.getString("lastname"),
-                    rs.getString("firstname"),
-                    rs.getString("gender"),
-                    rs.getString("username"),
-                    rs.getString("password"),
-                    rs.getString("email"),
-                    rs.getString("address"));
-                } while(rs.next());
+                            rs.getString("spId"),
+                            rs.getString("reg_status"),
+                            rs.getString("lastname"),
+                            rs.getString("firstname"),
+                            rs.getString("gender"),
+                            rs.getString("username"),
+                            rs.getString("password"),
+                            rs.getString("email"),
+                            rs.getString("contact"),
+                            rs.getString("address"),
+                            rs.getString("log_status"));
+                    spList.put(sp.getSpId(), sp);
+                } while (rs.next());
             }
+
+            rs.close();
+            st.close();
+            conn.close();
+
+            context.setAttribute("spList", spList);
+
         } catch (Exception e) {
             throw new RuntimeException("Cannot start application. Database access error.");
         }

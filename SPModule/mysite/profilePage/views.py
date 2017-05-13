@@ -13,25 +13,26 @@ from django.shortcuts import render, get_object_or_404
 #    return row
 
 def index(request):
-    template = loader.get_template('profilePage/profile.html')
+    template = loader.get_template('profile.html')
     spArray = Sp.objects.filter(sp_id=1).values()[0]
+    context = spArray
     #spArray = {
     #    'lastname': 'Dela Cruz',
     #    'firstname': 'Juan',
     #}
-    return HttpResponse(template.render(spArray, request))
+    return HttpResponse(template.render(context, request))
 
 def dashboard_view(request):
-    return render(request, 'dashboard/index.html')
+    return render(request, 'index.html')
 
 def request_view(request):
-    return render(request, 'request/requests.html')
+    return render(request, 'requests.html')
 
 def messages_view(request):
-    return render(request, 'messages/messages.html')
+    return render(request, 'messages.html')
 
 def transactions_view(request):
-    return render(request, 'transactions/transactions.html')
+    return render(request, 'transactions.html')
 
 def stats_view(request):
-    return render(request, 'stats/stats.html')
+    return render(request, 'stats.html')

@@ -13,7 +13,7 @@ from django.shortcuts import render, get_object_or_404
 #    return row
 
 def index(request):
-    template = loader.get_template('messages/messages.html')
+    template = loader.get_template('messages.html')
     spArray = Sp.objects.filter(sp_id=1).values()[0]
     #spArray = {
     #    'lastname': 'Dela Cruz',
@@ -22,16 +22,16 @@ def index(request):
     return HttpResponse(template.render(spArray, request))
 
 def dashboard_view(request):
-    return render(request, 'dashboard/index.html')
+    return render(request, 'index.html')
 
 def profile_view(request):
-    return render(request, 'profilePage/profile.html')
+    return render(request, 'profile.html')
 
 def request_view(request):
-    return render(request, 'request/requests.html')
+    return render(request, 'requests.html')
 
 def transactions_view(request):
-    return render(request, 'transactions/transactions.html')
+    return render(request, 'transactions.html')
 
 def stats_view(request):
-    return render(request, 'stats/stats.html')
+    return render(request, 'stats.html')

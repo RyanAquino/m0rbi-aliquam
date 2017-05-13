@@ -2670,10 +2670,10 @@ ul.common li a:hover {
 }
 
 .comment-center .mail-contnet .mail-desc1 {
-    font-size: 14px;
+    font-size: 12px;
     display: block;
     margin: 15px 0;
-    line-height: 14px;
+    line-height: 13px;
     color: #848a96;
     overflow: hidden;
     max-height: 52px;

@@ -167,6 +167,7 @@ class Message(models.Model):
     msg = models.CharField(max_length=150)
     time = models.TimeField()
     date = models.DateField()
+    status = models.CharField(max_length=6)
 
     class Meta:
         managed = False

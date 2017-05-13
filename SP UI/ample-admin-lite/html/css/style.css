@@ -655,7 +655,7 @@ label {
 .list-group-item.active:focus,
 .list-group-item.active:hover {
     background: #41b3f9;
-    border-color: #41b3f9
+    border-color: #41b3f9;
 }
 .list-task .list-group-item,
 .list-task .list-group-item:first-child {
@@ -1113,12 +1113,12 @@ pre {
 .btn-danger:hover {
     background: #f33155;
     opacity: .8;
-    border: 1px solid #f33155
+    border: 1px solid #f33155;
 }
 .btn-default,
 .btn-default.disabled {
     background: #e4e7ea;
-    border: 1px solid #e4e7ea
+    border: 1px solid #e4e7ea;
 }
 .btn-default.disabled.focus,
 .btn-default.disabled:focus,
@@ -1128,19 +1128,19 @@ pre {
 .btn-default:hover {
     opacity: .8;
     border: 1px solid #e4e7ea;
-    background: #e4e7ea
+    background: #fff;
 }
 .btn-default.btn-outline {
-    background-color: #fff
+    background-color: #fff;
 }
 .btn-default.btn-outline.focus,
 .btn-default.btn-outline:focus,
 .btn-default.btn-outline:hover {
-    background: #e4e7ea
+    background: #e4e7ea;
 }
 .btn-primary.btn-outline {
     color: #7460ee;
-    background-color: #fff
+    background-color: #fff;
 }
 .btn-primary.btn-outline.focus,
 .btn-primary.btn-outline:focus,
@@ -1176,7 +1176,7 @@ pre {
 .btn-warning.btn-outline:focus,
 .btn-warning.btn-outline:hover {
     background: #fb4;
-    color: #fff
+    color: #fff;
 }
 .btn-danger.btn-outline {
     color: #f33155;
@@ -1186,7 +1186,7 @@ pre {
 .btn-danger.btn-outline:focus,
 .btn-danger.btn-outline:hover {
     background: #f33155;
-    color: #fff
+    color: #fff;
 }
 .button-box .btn {
     margin: 0 8px 8px 0
@@ -1196,7 +1196,7 @@ pre {
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,
 .btn-warning.btn-outline:hover {
-    color: #fff
+    color: #fff;
 }
 .btn-label {
     background: rgba(0, 0, 0, .05);
@@ -2609,10 +2609,20 @@ ul.common li a:hover {
     border-bottom: 1px solid rgba(120, 130, 140, .13);
     display: table;
     width: 100%;
-    padding: 20px 25px
+    padding: 20px 25px;
+}
+.comment-center .comment-body1 {
+    border-bottom: 1px solid rgba(120, 130, 140, .13);
+    display: inline-block;
+    width: 100%;
+    padding: 20px 25px;
 }
 .comment-center .comment-body:hover {
     background: #f9ece3;
+    transition: background ease-in-out 0.3s;
+}
+.comment-center .comment-body1:hover {
+    background: transparent;
     transition: background ease-in-out 0.3s;
 }
 
@@ -2622,7 +2632,17 @@ ul.common li a:hover {
     position: relative;
     margin: 0 10px 0 0;
 }
+.comment-center .user-img1 {
+    width: 45px;
+    display: table-cell;
+    position: relative;
+    margin: 0 5px 0 0;
+    padding-left: 14px;
+}
 .comment-center .user-img img {
+    width: 100%
+}
+.comment-center .user-img1 img {
     width: 100%
 }
 .comment-center .mail-contnet {
@@ -5508,6 +5528,7 @@ ul.wallet-list li a:hover {
     right: 0;
     display: none;
     top: 20px
+    border-bottom: 1px solid black;
 }
 .sk-chat-widgets .chatonline li:hover .call-chat {
     display: block

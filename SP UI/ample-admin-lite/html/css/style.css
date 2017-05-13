@@ -2673,7 +2673,7 @@ ul.common li a:hover {
     font-size: 14px;
     display: block;
     margin: 15px 0;
-    line-height: 13px;
+    line-height: 14px;
     color: #848a96;
     overflow: hidden;
     max-height: 52px;
@@ -5527,11 +5527,10 @@ ul.wallet-list li a:hover {
     position: absolute;
     right: 0;
     display: none;
-    top: 20px
-    border-bottom: 1px solid black;
+    top: 20px;
 }
 .sk-chat-widgets .chatonline li:hover .call-chat {
-    display: block
+    display: block;
 }
 .chat-box-input {
     border: 0;

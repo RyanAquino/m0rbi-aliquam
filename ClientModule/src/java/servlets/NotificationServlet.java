@@ -40,20 +40,20 @@ public class NotificationServlet extends HttpServlet {
 //        if (session == null || session.getAttribute("user") == null) {
 //            String url = response.encodeRedirectURL("NoSession.jsp");
 //            response.sendRedirect(url);
-//        } 
-        response.setContentType("text/html");
+//        } else {
+            response.setContentType("text/html");
 
-        Database db = (Database) getServletContext().getAttribute("db");
-        System.out.println(db);
+            Database db = (Database) getServletContext().getAttribute("db");
+            System.out.println(db);
 
-        
-        // change client id = 1
-        String sql = "SELECT DISTINCT * FROM request NATURAL JOIN sp WHERE client_id = 1 and status = \'accepted\';";
-        ResultSet rs;
-        try {
-            rs = db.runSql(sql);
+            // change client id = 1
+            String sql = "SELECT DISTINCT * FROM request NATURAL JOIN sp WHERE client_id = 1 and status = 'accepted';";
+            ResultSet rs;
+            try {
+                out.println(sql);
+                rs = db.runSql(sql);
 
-            ArrayList<Requests> requests = new ArrayList<Requests>();
+                ArrayList<Requests> requests = new ArrayList<Requests>();
 
 //            Requests req = new Requests(
 //                    rs.getString("request_id"),
@@ -63,35 +63,33 @@ public class NotificationServlet extends HttpServlet {
 //                    rs.getString("date"),
 //                    rs.getString("time"),
 //                    rs.getString("sched_id"));
-            while (rs.next()) {
+                while (rs.next()) {
 
-                Requests req = new Requests();
-                req.setSched_id(rs.getString("request_id"));
-                req.setSp_id(rs.getString("sp_id"));
-                req.setClient_id(rs.getString("client_id"));
-                req.setStatus(rs.getString("status"));
-                req.setDate(rs.getString("date"));
-                req.setTime(rs.getString("time"));
-                req.setSched_id(rs.getString("sched_ids"));
-                
-                
-                
-                ServiceProvider sp = new ServiceProvider();
-                sp.setSpId(rs.getString("sp_id"));
-                
-                
+                    Requests req = new Requests();
+                    req.setRequest_id(rs.getString("request_id"));
+                    req.setSp_id(rs.getString("sp_id"));
+                    req.setClient_id(rs.getString("client_id"));
+                    req.setStatus(rs.getString("status"));
+                    req.setDate(rs.getString("date"));
+                    req.setTime(rs.getString("time"));
+                    req.setSched_id(rs.getString("sched_id"));
 
+                    ServiceProvider sp = new ServiceProvider();
+                    sp.setSpId(rs.getString("sp_id"));
+
+                }
+
+                request.setAttribute("requests", requests);
+                RequestDispatcher view = request.getRequestDispatcher("Notification.jsp");
+                view.forward(request, response);
+//            response.sendRedirect(request.)
+
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
-            
-            request.setAttribute("requests", requests);
-            RequestDispatcher view = request.getRequestDispatcher("Notification.jsp") ;
-            view.forward(request, response);
-            
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
 
-    }
+//    }
 
 }

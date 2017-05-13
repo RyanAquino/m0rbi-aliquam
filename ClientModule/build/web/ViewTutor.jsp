@@ -90,27 +90,7 @@
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
                 </div>
-                <ul class="nav" id="side-menu">
-                    <li style="padding: 70px 0 0;">
-                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="messages.html" class="waves-effect"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>Messages</a>
-                    </li>
-                    <li>
-                        <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile</a>
-                    </li>
-                    <li>
-                        <a href="notification.html" class="waves-effect"><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Notifications</a>
-                    </li>
-                    <li>
-                        <a href="transactions.html" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Transactions</a>
-                    </li>
-                    <li>
-                        <a href="home.html" class="waves-effect"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</a>
-                    </li>
-
-                </ul>
+             <jsp:include page="WEB-INF/fragments/nav.html"/>
             </div>
         </div>
         <!-- ============================================================== -->

@@ -23,15 +23,20 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
   <head>
       <meta charset="UTF-8">
       <title>Document</title>
+      <link rel="stylesheet" href="css/scroll-table.css">
   </head>
   <body>
    
-    <div class="panel panel-default">
+    <div class="panel panel-danger">
     <div class="panel-heading">
-                            Customers
-                        </div>
-   <div class="panel-body">
-   <div class="table-responsive">
+    Customers
+    </div>
+    </div>
+       
+  
+
+   <div class="panel-body" id="table-wrapper">
+   <div class="table-responsive" id="table-scroll">
     <table class="table table-striped table-hover">
       
        
@@ -41,12 +46,16 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
             $clientqueryall = mysqli_query($connect, $queryall);
             $querycount = mysqli_num_rows($clientqueryall);
             ?>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Address</th>
-                <th>Gender</th>
-            </tr>
+            <thead>
+                <th><p class = "text">First Name</p></th>
+                <th><p class = "text">Last Name</p></th>
+                <th><p class = "text">Username</p></th>
+                <th><p class = "text">Address</p></th>
+                <th><p class = "text">Contact</p></th>
+                <th><p class = "text">Email</p></th>
+                <th><p class = "text">Gender</p></th>
+                
+            </thead>
             <?php
             while ($i < $querycount){
             $row = mysqli_fetch_array($clientqueryall);
@@ -56,15 +65,17 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
                    <tr>
                    <td><?php echo $row['firstname'];?></td>
                    <td><?php echo $row['lastname'];?></td>
+                   <td><?php echo $row['username'];?></td>
                    <td><?php echo $row['address'];?></td>
+                   <td><?php echo $row['contact'];?></td>
+                   <td><?php echo $row['email'];?></td>
                    <td><?php echo $row['gender'];?></td>
                    </tr>
               <?php $i++;} ?>
     </table>
 
-       </div>   
-    </div>    
-   </div>
+    </div>
+    </div>
       
   </body>
   </html>

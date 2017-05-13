@@ -23,15 +23,17 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
   <head>
       <meta charset="UTF-8">
       <title>Document</title>
+      <link rel="stylesheet" href="css/scroll-table.css">
   </head>
   <body>
 
-    <div class="panel panel-default">
+    <div class="panel panel-danger">
     <div class="panel-heading">
                             Service Providers
-                        </div>
-   <div class="panel-body">
-   <div class="table-responsive">
+    </div>
+    </div>
+   <div class="panel-body" id="table-wrapper">
+   <div class="table-responsive" id="table-scroll">
     <table class="table table-striped table-hover">
         <?php
             $i = 0;
@@ -40,16 +42,16 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
             $querycount = mysqli_num_rows($clientqueryall);
             ?>
             
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>Status</th>
-            </tr>
+            <thead>
+                <th><p class = "text">First Name</p></th>
+                <th><p class = "text">Last Name</p></th>
+                <th><p class = "text">Username</p></th>
+                <th><p class = "text">Address</p></th>
+                <th><p class = "text">Contact</p></th>
+                <th><p class = "text">Email</p></th>
+                <th><p class = "text">Gender</p></th>
+                <th><p class = "text">Status</p></th>
+            </thead>
             
             <?php
             while ($i < $querycount){
@@ -71,7 +73,7 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
     </table>
        </div>   
     </div>    
-   </div>
+   
       
   </body>
   </html>

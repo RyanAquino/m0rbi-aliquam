@@ -16,6 +16,9 @@ import string
 
 def index(request):
     template = loader.get_template('requests.html')
+    return HttpResponse(template.render(get_context(request), request))
+
+def get_context(request):
     sp_value = Sp.objects.filter(sp_id=1).values()[0]
     context = sp_value
     #context = {**sp_value, **all_request}
@@ -27,23 +30,19 @@ def index(request):
     context['service'] = Service.objects.all().values()
     context['sched'] = Schedule.objects.filter(sp_id=1).values()
     context['client'] = Client.objects.all().values()
-    #spArray = {
-    #    'lastname': 'Dela Cruz',
-    #    'firstname': 'Juan',
-    #}
-    return HttpResponse(template.render(context, request))
+    
+    return context
 
-def reject(request):
-    req = Request.objects.filter()
+def verdict(request, req_id):
+    req = Request.objects.filter(request_id=req_id)
+    if 'accept' in request.POST:
+        req = Request.objects.filter(request_id=req_id)
+        req.update(status = 'accepted')
+    elif 'reject' in request.POST:  
+        req = Request.objects.filter(request_id=req_id)
+        req.update(status = 'rejected')
     
-def get_sched(request):
-    sched_value = Schedule.objects.filter(sp_id=1, sched_id=1).values()[0]
-    sched_time = Schedule.objects.filter(sp_id=1, sched_id=1).values('time')[0]
-    sched_time['sched_time'] = sched_time.pop('time')
-    sched_value.pop('time')
-    sched_value = {**sched_value, **sched_time}
-    
-    return sched_value
+    return HttpResponse(template.render(get_context(request), request))
 
 @register.filter
 def get_sched_time(dictionary, value):
@@ -56,36 +55,24 @@ def get_sched_day(dictionary, value):
     return sched_day.pop('day')
 
 @register.filter
-def get_client(dictionary, value):
-    client_ret = dictionary.filter(client_id=value).values()[0]
-    client_name = client_ret.pop('firstname') + " " + client_ret.pop('lastname')
+def get_client_req(dictionary, value):
+    #req_value = dictionary.values('request_id')
+    #req_temp = Request.objects.filter(request_id=req_value).values('client_id')[0]
+    #req = req_temp.pop('client_id')
+    #client_ret = Client.objects.filter(client_id=req).values()[0]
+    first_name = dictionary.values('firstname')[0] 
+    first_name = first_name.pop('firstname')
+    last_name = dictionary.values('lastname')[0]
+    last_name = last_name.pop('lastname')
+    client_name = first_name + " " + last_name
     return client_name
 
 @register.filter
-def get_service(dictionary, value):
-    sched_ret = dictionary.filter(sched_id=value).values()[0]
-    sched_value = sched_ret.pop('service_id')
-    service_ret = Service.objects.filter(service_id=sched_value).values()[0]
+def get_service_req(dictionary, value):
+    req_value = dictionary['request_id']
+    req_temp = Request.objects.filter(request_id=req_value).values('sched_id')[0]
+    sched_value = req_temp.pop('sched_id')
+    sched = Schedule.objects.filter(sched_id=sched_value).values()[0]
+    sched_f = sched.pop('service_id')
+    service_ret = Service.objects.filter(service_id=sched_f).values()[0]
     return string.capwords(service_ret.pop('description'))
-
-@register.simple_tag
-def accept(request_item):
-    request_item['status'] = 'accepted'
-    request_item.save()
-    
-    return index(request)
-
-def dashboard_view(request):
-    return render(request, 'index.html')
-
-def profile_view(request):
-    return render(request, 'profile.html')
-
-def messages_view(request):
-    return render(request, 'messages.html')
-
-def transactions_view(request):
-    return render(request, 'transactions.html')
-
-def stats_view(request):
-    return render(request, 'stats.html')

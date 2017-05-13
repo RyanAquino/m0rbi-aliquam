@@ -107,7 +107,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Academics</h3>
+                            <h3 class="box-title"><a href="Academics.jsp" name="academics">Academics</a></h3>
                             <ul class="list-inline two-part">
                                 <li>
                                     <a href="" class="waves-effect"><i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i></a>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-4">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Music</h3>
+                            <h3 class="box-title"><a href="Music.jsp" name="music">Music</a> </h3>
                             <ul class="list-inline two-part">
                                 <li>
                                     <div id=""><a href="" class="waves-effect"><i class="fa fa-music fa-fw" aria-hidden="true"></i></a>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Performing Arts</h3>
+                            <h3 class="box-title"><a href="Arts.jsp" name="arts">Performing Arts</a></h3>
                             <ul class="list-inline two-part">
                                 <li>
                                     <div id=""><a href="" class="waves-effect"><i class="fa fa-magic fa-fw" aria-hidden="true"></i></a></div>

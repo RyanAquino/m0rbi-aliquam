@@ -5,7 +5,7 @@ package beans;
  * @author Mai Radie
  */
 public class Transactions {
-    
+
     private String transaction_id, status, paid, request_id;
     private int amount;
 
@@ -29,7 +29,7 @@ public class Transactions {
         return paid;
     }
 
-    public String getAmount() {
+    public int getAmount() {
         return amount;
     }
 
@@ -49,14 +49,12 @@ public class Transactions {
         this.paid = paid;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
     public void setRequest_id(String request_id) {
         this.request_id = request_id;
     }
-    
-    
-    
+
 }

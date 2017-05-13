@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Tutor A+</title>
+    <title>Tutorial A+</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -122,13 +122,18 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <form action="checkbox">
-                                    <tbody>
-                                        <tr>
-                                            <td><img src="../plugins/images/users/varun.jpg" alt="user-img" width="46"></td>
-                                            <td><strong>Deshmukh Alao</strong> accepted your request.</td>
-                                            <td>May 6</td>
-                                        </tr>
-                                    </tbody>
+
+
+                                        <c:forEach var="req" items="${requests}">
+                                            <tbody>
+                                                <tr>
+                                                    <td><img src="../plugins/images/users/varun.jpg" alt="user-img" width="46"></td>
+                                                    <td><strong>
+                                                            ${req.sp_id}</strong> accepted your request.</td>
+                                                    <td>${req.date}</td>
+                                                </tr>
+                                            </tbody>
+                                        </c:forEach>
                                     </form>
                                 </table>
                             </div>

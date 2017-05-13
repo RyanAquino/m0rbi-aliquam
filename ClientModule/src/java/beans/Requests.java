@@ -18,6 +18,10 @@ public class Requests {
         this.sched_id = sched_id;
     }
 
+    public Requests() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getRequest_id() {
         return request_id;
     }

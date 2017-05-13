@@ -40,7 +40,7 @@ public class TransactionsServlet extends HttpServlet {
 //        } 
         response.setContentType("text/html");
 
-        String catName = request.getParameter("name");
+      
 
         Database db = (Database) getServletContext().getAttribute("db");
         System.out.println(db);

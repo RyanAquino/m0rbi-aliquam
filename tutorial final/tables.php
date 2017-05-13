@@ -1,48 +1,53 @@
 <?php
-    include 'inc/header.php';
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$dbname = 'tutorial';
+
+$connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
+        or die("Connection failed: ");
+//check connection  
+
+//if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
+//  $tempId = $_SESSION['user_id'];
+//  $tempName = $_SESSION['user_name'];
+
+ //ss include('inc/connection.php');
+
+ 
+
 ?>
-    <div id="page-wrapper">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Document</title>
+  </head>
+  <body>
 
-    <div class="container-fluid">
+    <table>
+        <?php
+            $i = 0;
+            $queryall = "SELECT * FROM client";
+            $clientqueryall = mysqli_query($connect, $queryall);
+            $querycount = mysqli_num_rows($clientqueryall);
+            
 
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Users
-                </h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <i class="fa fa-dashboard"></i> <a href="admin.php">Dashboard</a>
-                    </li>
-                    <li class="active">
-                        <i class="fa fa-table"></i> users
-                    </li>
-                </ol>
-            </div>
-        </div>
-            <div class="col-lg-6">
-                <h2>Tutorials</h2>
-                <p>For complete documentation, please visit <a target="_blank" href="http://getbootstrap.com/css/#tables">Bootstrap's Tables Documentation</a>.</p>
-            </div>
-        </div>
-        <!-- /.row -->
+            while ($i < $querycount){
+            $row = mysqli_fetch_array($clientqueryall);
+            $query = "SELECT username FROM client";
+            $clientquery = mysqli_query($connect, $query);
+                ?>
+                   <tr>
+                   <td><?php echo $row['firstname'];?></td>
+                   <td><?php echo $row['lastname'];?></td>
+                   <td><?php echo $row['address'];?></td>
+                   <td><?php echo $row['gender'];?></td>
+                   </tr>
+              <?php $i++;} ?>
+    </table>
 
-    </div>
-    <!-- /.container-fluid -->
-
-</div>
-<!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+      
+  </body>
+  </html>

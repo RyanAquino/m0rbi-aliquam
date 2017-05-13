@@ -25,15 +25,29 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
       <title>Document</title>
   </head>
   <body>
-
-    <table>
+   
+    <div class="panel panel-default">
+    <div class="panel-heading">
+                            Customers
+                        </div>
+   <div class="panel-body">
+   <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      
+       
         <?php
             $i = 0;
             $queryall = "SELECT * FROM client";
             $clientqueryall = mysqli_query($connect, $queryall);
             $querycount = mysqli_num_rows($clientqueryall);
-            
-
+            ?>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Gender</th>
+            </tr>
+            <?php
             while ($i < $querycount){
             $row = mysqli_fetch_array($clientqueryall);
             $query = "SELECT username FROM client";
@@ -48,6 +62,9 @@ $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname)
               <?php $i++;} ?>
     </table>
 
+       </div>   
+    </div>    
+   </div>
       
   </body>
   </html>

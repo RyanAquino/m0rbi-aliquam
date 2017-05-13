@@ -8057,6 +8057,7 @@ ul.select-row-icon li a:hover i.whn-hov {
     background-color: #f7fafc;
     color: #686868;
     padding: 5px 0;
+    list-style: none;
     transition: background-color .2s, color .2s
 }
 .tabs-style-bar nav ul li a:focus,

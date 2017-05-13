@@ -859,7 +859,7 @@ pre {
 }
 .navbar-header {
     width: 100%;
-    background: #3c4451;
+    background: #ff0000;
     border: 0
 }
 .navbar-default {
@@ -1010,7 +1010,7 @@ pre {
 }
 .drop-title {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
-    color: #263238;
+    color: #ff0000;
     font-size: 15px;
     font-weight: 600;
     padding: 11px 20px 15px

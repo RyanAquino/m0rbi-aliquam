@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
-
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
@@ -230,7 +230,8 @@ class Sp(models.Model):
     gender = models.CharField(max_length=1)
     username = models.CharField(max_length=45)
     password = models.CharField(max_length=45)
-    email = models.CharField(max_length=45)
+    email = models.CharField(max_length=45, blank=True, null=True)
+    contact = models.CharField(max_length=45, blank=True, null=True)
     address = models.CharField(max_length=45)
     log_status = models.CharField(max_length=6)
 

@@ -8,15 +8,11 @@ import java.sql.Statement;
 import java.util.HashMap;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
 
 /**
  *
  * @author Mai Radie
  */
-
-
 public class StartupListener {
 
     public void contextInitialized(ServletContextEvent sce) throws SQLException {
@@ -27,11 +23,11 @@ public class StartupListener {
             String user_name = context.getInitParameter("user_name");
             String password = context.getInitParameter("password");
             String database = context.getInitParameter("database");
-            
+
             Database db = new Database(url + database, user_name, password);
-            
+
             context.setAttribute("db", db);
-            
+
 //            Database db = new Database(url + database)
 //            BasicDataSource ds = new BasicDataSource();
 //            ds.setDriverClassName(driver);

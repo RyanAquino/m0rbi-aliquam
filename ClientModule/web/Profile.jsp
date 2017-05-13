@@ -86,7 +86,7 @@
                     <div class="sidebar-head">
                         <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
                     </div>
-               <jsp:include page="WEB-INF/fragments/nav.html"/>
+                    <jsp:include page="WEB-INF/fragments/nav.html"/>
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -101,6 +101,11 @@
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title">Profile page</h4> </div>
                         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success">Request</button>
+                                </div>
+                            </div>
                             <ol class="breadcrumb">
                                 <li><a href="#">Dashboard</a></li>
                                 <li class="active">Profile Page</li>
@@ -198,11 +203,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
-                                        </div>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>

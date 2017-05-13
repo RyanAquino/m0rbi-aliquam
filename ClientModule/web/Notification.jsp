@@ -122,13 +122,18 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <form action="checkbox">
-                                    <tbody>
-                                        <tr>
-                                            <td><img src="../plugins/images/users/varun.jpg" alt="user-img" width="46"></td>
-                                            <td><strong>Deshmukh Alao</strong> accepted your request.</td>
-                                            <td>May 6</td>
-                                        </tr>
-                                    </tbody>
+
+
+                                        <c:forEach var="req" items="${requests}">
+                                            <tbody>
+                                                <tr>
+                                                    <td><img src="../plugins/images/users/varun.jpg" alt="user-img" width="46"></td>
+                                                    <td><strong>
+                                                            ${req.sp_id}</strong> accepted your request.</td>
+                                                    <td>${req.date}</td>
+                                                </tr>
+                                            </tbody>
+                                        </c:forEach>
                                     </form>
                                 </table>
                             </div>

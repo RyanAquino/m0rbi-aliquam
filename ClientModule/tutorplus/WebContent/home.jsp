@@ -22,7 +22,6 @@
 %>
 
 
-%>
 
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -84,7 +83,7 @@
                   <div class="white-box" >
                                 <h3 class="box-title">Instructors</h3> 
                             <div class="table-responsive">
-                                <div class="col-lg	-4 col-xs-12">
+                                <div class="col-lg-4 col-xs-12">
                         
                             
                            
@@ -101,7 +100,7 @@
                                   				<div class="user-content">
                                                		<h2 class="text-white"><c:out value="${students.firstName}"/><br></h2>
                                                 	<h6 class="text-white">If your looking someone ...</h6>
-                                                	<a href="/tutorplus/CheckProvider"><button type="click">View tutor</button></a>
+                                                	<a href="/tutorplus/CheckProvider?tut=<c:out value="${students.firstName}"/>"><button type="click">View tutor</button></a>
                                     			</div>
                                 			</div>
                             			</div> 

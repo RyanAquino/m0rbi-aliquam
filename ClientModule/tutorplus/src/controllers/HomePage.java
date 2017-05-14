@@ -38,12 +38,13 @@ public class HomePage extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 	    //create a session for user log in
-		int user = 1;
+		String use = request.getParameter("test");
+		int user = Integer.parseInt(use);
+		//int user = 1;
 		HttpSession session=request.getSession();  
-	      session.setAttribute("userName",user);
+	    session.setAttribute("userName",user);
 	        
 		ArrayList<Category> catList = new ArrayList<Category>();
 		ArrayList<ServiceProvider> spList = new ArrayList<ServiceProvider>();
@@ -104,18 +105,18 @@ public class HomePage extends HttpServlet {
 	            	s.setEmail(rs.getString(8));
 	            	s.setContact(rs.getString(9));
 	            	s.setAddress(rs.getString(10));
+	            	s.setSchedList();
 	            	s.setServList();
 	            	spList.add(s);
 	            }
 	            request.setAttribute("spServ",spList);
-	            
-	           
-	            
+
 	            RequestDispatcher dispatchers = request.getRequestDispatcher("home.jsp");
 	            dispatchers.forward(request,response);
 	        } catch (Exception e){
 	        	e.printStackTrace();
 	        }
+
 	}
 
 	/**
@@ -123,7 +124,10 @@ public class HomePage extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		PrintWriter out = response.getWriter();
+		out.print("hello");
+		
+		
 	}
-
 }

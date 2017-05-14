@@ -93,6 +93,10 @@
                 include 'sp-table.php';
                 ?>
 
+                <?php
+                include 'search.php';
+                ?>
+
                 </div>
             </div>
             

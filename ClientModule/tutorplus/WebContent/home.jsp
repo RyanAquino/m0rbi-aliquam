@@ -1,9 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="classes.Category"%>
+<%@ page import = "classes.ServiceProvider" %>
 <%@ include file = "includes/header.jsp" %>
 <%@ page import = "classes.Generate" %>
 <%ArrayList<Category> categList = (ArrayList<Category>)request.getAttribute("categList"); %>
+<%ArrayList<ServiceProvider> spList = (ArrayList<ServiceProvider>)request.getAttribute("spList"); %>
 <%ArrayList<String> nameList = new ArrayList<String>();
 	String name = null;
 	for( int i = 0 ; i < categList.size(); i++){
@@ -12,15 +14,14 @@
 	}
 	request.setAttribute("nameList",nameList);
 	request.setAttribute("parame", request.getParameter("cat"));
+	request.setAttribute("parameTwo", request.getParameter("serv"));
+	
 	%> 
 <% ArrayList<String> servList = new ArrayList<String>();
 	
 %>
 
 
-
-<%ArrayList<String> servLists = (ArrayList<String>)request.getAttribute("servList"); 
-	request.setAttribute("lists",servLists);
 %>
 
         <div id="page-wrapper">
@@ -66,10 +67,9 @@
       <c:if test = "${not empty param }">
       					<div class="white-box">
                             <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
-                                <select class="form-control pull-right row b-none">
+                                <select class="form-control pull-right row b-none" id="mySelect" >
 							        <c:forEach var="category" items="${categList}">
 							        <c:if test = "${parame == category.category }">
-										
 								      	<c:forEach var="list" items = "${category.servList}">
 								      	<option><c:out value ="${list}"></c:out></option>
 								      	</c:forEach>										
@@ -77,35 +77,54 @@
 									</c:forEach>                               
                                 </select>
                             </div>
-                            <h3 class="box-title"><c:out value = "${parame}" ></c:out></h3>  
+                            <h3 class="box-title"><c:out value = "${parame}" ></c:out></h3> 
+                            <button type="button" class="btn btn-primary" onclick='addParameter()'>Search</button> 
                     </div>
                     
-                  <div class="white-box">
-                                <h3 class="box-title">Instructors</h3>
+                  <div class="white-box" >
+                                <h3 class="box-title">Instructors</h3> 
                             <div class="table-responsive">
-                                <div class="col-md-4 col-xs-12">
-                        <div class="white-box">
+                                <div class="col-lg	-4 col-xs-12">
+                        
                             
-                            <div class="user-bg"> 
+                           
+                            
                             <!-- Start of user div -->
-                            
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                                <h5 class="text-white">Danielle Saringan</h5>
-                                                <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
-                                                <h6 class="text-white">If your looking someone ...</h6>
-                                                <a href="viewtutor.html"><button type="click">View tutor</button></a>
-                                    </div>
-                                </div>
+									
+									
+						<c:forEach var="students" items = "${spServ}">
+							<c:forEach var="services" items = "${students.subjList}">
+								<c:if test="${parameTwo == services }">
+									<div class="white-box">
+										 <div class="user-bg"> 
+                                			<div class="overlay-box">
+                                  				<div class="user-content">
+                                               		<h2 class="text-white"><c:out value="${students.firstName}"/><br></h2>
+                                                	<h6 class="text-white">If your looking someone ...</h6>
+                                                	<a href="/tutorplus/CheckProvider"><button type="click">View tutor</button></a>
+                                    			</div>
+                                			</div>
+                            			</div> 
+									</div>
+								</c:if>
+							</c:forEach>
+									
+									</c:forEach>
+									
+ 										
+									                           
+    
                             <!-- End of user div -->
                             
                             
-                            </div>
+                            
                         </div>
-                        </div><table class="table">
+                        </div>
+                         </div>
+                        <table class="table">
                                     
                     </table>
-                    </div>
+                   
              
             </div>
                     

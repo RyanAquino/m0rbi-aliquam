@@ -56,9 +56,9 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="menu-top-active" href="index.html">Dashboard</a></li>
+                            <li><a class="menu-top-active" href="admin.php">Dashboard</a></li>
                             <li><a href="requests.php">Account Requests</a></li>
-                            <li><a href="addcategory.html">Add Category</a></li>
+                            <li><a href="addcategory.php">Add Category</a></li>
                             <li><a href="forms.html">Forms</a></li>
                              <li><a href="profile.html">Profile</a></li>
                             <li><a href="blank.html">Blank Page</a></li>

@@ -54,7 +54,7 @@
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a  href="admin.php">Dashboard</a></li>
                             <li><a class="menu-top-active" >Account Requests</a></li>
-                            <li><a href="addcategory.html">Add Category</a></li>
+                            <li><a href="addcategory.php">Add Category</a></li>
                             <li><a href="forms.html">Forms</a></li>
                              <li><a href="login.html">Login Page</a></li>
                             <li><a href="blank.html">Blank Page</a></li>

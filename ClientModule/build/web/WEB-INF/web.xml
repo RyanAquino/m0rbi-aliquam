@@ -45,7 +45,7 @@
     
     <servlet-mapping>
         <servlet-name>Message </servlet-name>
-        <url-pattern>*.foo</url-pattern>
+        <url-pattern>/messages</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>

@@ -50,7 +50,7 @@
     -->
     <welcome-file-list>
         <welcome-file>
-            index.jsp
+            HomePage
         </welcome-file>
     </welcome-file-list>
     

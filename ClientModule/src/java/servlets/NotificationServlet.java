@@ -6,7 +6,7 @@
 package servlets;
 
 import beans.Requests;
-import beans.ServiceProvider;
+import classes.ServiceProvider;
 import beans.Transactions;
 import java.io.IOException;
 import java.sql.Connection;
@@ -61,9 +61,11 @@ public class NotificationServlet extends HttpServlet {
                 req.setDate(rs.getString("date"));
                 req.setTime(rs.getString("time"));
                 req.setSched_id(rs.getString("sched_id"));
+                
+                requests.add(req);
 
                 ServiceProvider sp = new ServiceProvider();
-                sp.setSpId(rs.getString("sp_id"));
+              //  sp.setSpId(rs.getString("sp_id"));
 
             }
             rs.close();

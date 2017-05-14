@@ -1,6 +1,5 @@
 package listeners;
 
-import beans.ServiceProvider;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

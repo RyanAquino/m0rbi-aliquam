@@ -5,7 +5,6 @@
  */
 package servlets;
 
-import beans.ServiceProvider;
 import beans.Transactions;
 import java.io.IOException;
 import java.io.PrintWriter;

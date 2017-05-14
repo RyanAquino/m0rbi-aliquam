@@ -233,11 +233,6 @@
                                             <option>Thailand</option>
                                         </select>
                                     </div>
-<<<<<<< HEAD
-
-                                </form>
-                            </div>
-=======
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
@@ -245,7 +240,6 @@
                                     </div>
                                 </div>
                             </form>
->>>>>>> 69e8cd53259be8fbb01f6107606e0966b7bd4707
                         </div>
                     </div>
                 </div>

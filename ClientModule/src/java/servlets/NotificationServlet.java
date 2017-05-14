@@ -9,8 +9,6 @@ import beans.Requests;
 import beans.ServiceProvider;
 import beans.Transactions;
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -38,7 +36,7 @@ public class NotificationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false);
+     //   HttpSession session = request.getSession(false);
 
         response.setContentType("text/html");
 
@@ -78,7 +76,7 @@ public class NotificationServlet extends HttpServlet {
             view.forward(request, response);
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NotificationServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         } catch (SQLException ex) {
             Logger.getLogger(NotificationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

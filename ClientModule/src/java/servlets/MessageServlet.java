@@ -35,6 +35,7 @@ public class MessageServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         Message m = null;
+        ServiceProvider sp = null;
 
         response.setContentType("text/html");
 
@@ -83,20 +84,19 @@ public class MessageServlet extends HttpServlet {
                 }
 
                 List<String> list = new ArrayList<String>(spList);
-
+                
                 String sql2 = "";
-                
-                ArrayList<ArrayList<Message>> outer = new ArrayList<ArrayList<Message>>();
 
-                
+                ArrayList<ArrayList<Message>> outer = new ArrayList<ArrayList<Message>>();
+                ArrayList<Message> inner = null;
+                // get messages and put them in one list per sp
                 for (int x = 0; x < list.size(); x++) {
-                    sql2 = "SELECT * FROM MESSAGE WHERE (client_id = 2 AND sp_id =" + list.get(x) + ") ORDER BY date , time";
-                    
-                    ArrayList<Message> inner = new ArrayList<Message>();
-                    
+                    sql2 = "SELECT * FROM MESSAGE NATURAL JOIN SP WHERE (client_id = 2 AND sp_id =" + list.get(x) + ") ORDER BY date , time";
                     Statement st2 = conn.createStatement();
                     ResultSet rs2 = st2.executeQuery(sql2);
+                    inner = new ArrayList<Message>();
                     while (rs2.next()) {
+                        
                         m = new Message();
                         m.setMsg_id(rs2.getString("msg_id"));
                         m.setSp_id(rs2.getString("sp_id"));
@@ -107,17 +107,29 @@ public class MessageServlet extends HttpServlet {
                         m.setDate(rs2.getString("date"));
                         m.setStatus(rs2.getString("status"));
 
+                        sp.setFirstName(rs2.getString("firstname"));
+                        sp.setLastName(rs2.getString("lastname"));                        
+                        
+                        
                         inner.add(m);
-                        outer.add(inner);
+                        inner.add(sp);
+                        
                     }
+                    outer.add(inner);
                 }
 
                 rs.close();
-
-                st.close();
+                st.close();              
                 conn.close();
+                
+                String x = outer.get(0).get(0).getDate();
+                
+                // sort each list of outer by date :3
+                
 
                 request.setAttribute("msgs", msgList);
+                request.setAttribute("outer", outer);
+                request.setAttribute("inner", inner);
 
                 RequestDispatcher rd = request.getRequestDispatcher("Messages.jsp");
                 rd.forward(request, response);

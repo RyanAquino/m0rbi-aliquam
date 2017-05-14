@@ -1,3 +1,33 @@
+<?php
+    include 'inc/connection.php';
+    session_start();
+
+    if(isset($_POST['addcat'])) {
+        
+    $category = $_POST['catname'];
+    $description = $_POST['desc'];
+
+        $newCat = "INSERT INTO category (
+        category,
+        description
+        ) values (
+        '$category',
+        '$description'
+        )";
+        
+        
+        $addcategory = mysqli_query($connect, $newCat);
+       echo "<div class='alert'>";
+            echo "<span class='closebtn' onclick='this.parentElement.style.display='none';'>&times;</span>"; 
+            echo "Category added";
+            echo "</div>";
+    }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,14 +38,13 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Free Responsive Admin Theme - ZONTAL</title>
+    <title>Mansanas Tutorials</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
-    <link rel="icon" href="img/apple.ico"> 
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,10 +82,11 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a  href="admin.php">Dashboard</a></li>
+                            <li><a class="menu-top-active" href="index.html">Dashboard</a></li>
                             <li><a href="requests.php">Account Requests</a></li>
-                            <li><a class="menu-top-active" href="addcategory.php">Add Category</a></li>
+                            <li><a href="addcategory.php">Add Category</a></li>
                             <li><a href="inc/logout.php">Log out</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -75,37 +105,38 @@
                 
                 <div class="panel panel-default">
                         <div class="panel-heading">
-                            Service Providers
+                            Categories
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped  table-hover">
+                                   
+                                    <?php
+                                    $i = 0;
+            $queryall = "SELECT * FROM category";
+            $clientqueryall = mysqli_query($connect, $queryall);
+            $querycount = mysqli_num_rows($clientqueryall);
+                                    ?>
+                                    
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
+                                            <th>Category</th>
+                                            <th>Description</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                       
+                                       <?php
+                                         while ($i < $querycount){
+            $row = mysqli_fetch_array($clientqueryall);
+            $query = "SELECT username FROM category";
+            $clientquery = mysqli_query($connect, $query);
+                                        
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
+                                            <td><?php echo $row['category'];?></td>
+                                            <td><?php echo $row['description'];?></td>
+                                            <?php $i++;} ?>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -120,16 +151,16 @@
                         Category 
                     </div>
                     <div class="panel-body">
-                        
+                        <form method="POST">
+                            
                         <label>Category Name : </label>
-                        <input type="text" class="form-control" />
-                        <label>Enter Subject :  </label>
-                        <input type="text" class="form-control" />
-                        <label>Enter Message : </label>
-                        <textarea rows="9" class="form-control"></textarea>
+                        <input type="text" class="form-control" name="catname"/>
+                        <label>Enter Description : </label>
+                        <textarea rows="9" class="form-control" name="desc"></textarea>
                         <hr />
                         <a href="#" class="btn btn-warning"><span class="fa fa-times-circle" aria-hidden="true"></span> Clear </a>&nbsp;
-                      <a href="#" class="btn btn-success"><span class="fa fa-plus-circle" aria-hidden="true"    ></span>  Add Category </a>
+                      <button type="submit" class="btn btn-success" name="addcat"><span class="fa fa-plus-circle" aria-hidden="true"    ></span>  Add Category </button>
+                        </form>
                     </div>
                     <div class="panel-footer text-muted">
                         <strong>Note : </strong>Please note that we track all messages so don't send any spams.

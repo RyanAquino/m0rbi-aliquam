@@ -78,6 +78,39 @@
                 </div>
 
             </div>
+            
+            <div class="row">
+                 <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-one">
+                        <i  class="fa fa-book dashboard-div-icon" ></i>
+
+                         <h5>Academics </h5>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-two">
+                        <i  class="fa fa-futbol-o dashboard-div-icon" ></i>
+                        
+                         <h5>Sports </h5>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-three">
+                        <i  class="fa fa-music dashboard-div-icon" ></i>
+                        
+                         <h5>Music </h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-four">
+                        <i  class="fa fa-apple dashboard-div-icon" ></i>
+                        
+                         <h5>Mansanas </h5>
+                    </div>
+                </div>
+
+            </div>
+            
          
             
             <div class="row">
@@ -102,7 +135,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                    &copy; 2017 Mansanas
                 </div>
 
             </div>

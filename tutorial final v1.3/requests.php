@@ -108,12 +108,11 @@ if($count == 1){
         <div class="container">
             <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Requests</h1>
+                        <h1 class="page-head-line">Account Requests</h1>
                     </div>
             </div>
                 <div class="row">
                 <div class="col-md-12">
-                  <!--   Kitchen Sink -->
                   	<?php include "approve-client.php";
                   	 ?>
                 </div>
@@ -152,11 +151,6 @@ if($count == 1){
 
                     </div>
 
-
-
-                    <div class="panel-footer text-muted">
-                        <strong>Note : </strong>Please note that we track all messages so don't send any spams.
-                    </div>
                 </div>    
                 </div>
               </div>
@@ -168,7 +162,7 @@ if($count == 1){
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                    &copy; 2017 Mansanas
                 </div>
 
             </div>

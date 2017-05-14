@@ -655,7 +655,7 @@ label {
 .list-group-item.active:focus,
 .list-group-item.active:hover {
     background: #41b3f9;
-    border-color: #41b3f9
+    border-color: #41b3f9;
 }
 .list-task .list-group-item,
 .list-task .list-group-item:first-child {
@@ -672,7 +672,7 @@ label {
     padding: 15px
 }
 .media .media-heading {
-    font-weight: 500
+    font-weight: 500;
 }
 .well,
 pre {
@@ -834,7 +834,7 @@ pre {
 .logo b {
     height: 60px;
     float: left;
-    padding-left: 50px;
+    padding-left: 10px;
     width: auto;
     line-height: 59px;
     text-align: center
@@ -855,26 +855,26 @@ pre {
     text-transform: uppercase
 }
 .top-left-part .light-logo {
-    display: none
+    display: none;
 }
 .navbar-header {
     width: 100%;
-    background: #3c4451;
-    border: 0
+    background: #c40c09;
+    border: 0;
 }
 .navbar-default {
-    border: 0
+    border: 0;
 }
 .navbar-top-links {
-    margin-right: 0
+    margin-right: 0;
 }
 .navbar-top-links .badge {
     position: absolute;
     right: 6px;
-    top: 15px
+    top: 15px;
 }
 .navbar-top-links>li {
-    float: left
+    float: left;
 }
 .navbar-top-links>li>a {
     color: #fff;
@@ -883,7 +883,7 @@ pre {
     min-height: 60px
 }
 .navbar-top-links>li>a:hover {
-    background: rgba(0, 0, 0, .1)
+    background: rgba(0, 0, 0, .1);
 }
 .navbar-top-links>li>a:focus {
     background: rgba(0, 0, 0, 0)
@@ -1113,12 +1113,12 @@ pre {
 .btn-danger:hover {
     background: #f33155;
     opacity: .8;
-    border: 1px solid #f33155
+    border: 1px solid #f33155;
 }
 .btn-default,
 .btn-default.disabled {
     background: #e4e7ea;
-    border: 1px solid #e4e7ea
+    border: 1px solid #e4e7ea;
 }
 .btn-default.disabled.focus,
 .btn-default.disabled:focus,
@@ -1128,19 +1128,19 @@ pre {
 .btn-default:hover {
     opacity: .8;
     border: 1px solid #e4e7ea;
-    background: #e4e7ea
+    background: #fff;
 }
 .btn-default.btn-outline {
-    background-color: #fff
+    background-color: #fff;
 }
 .btn-default.btn-outline.focus,
 .btn-default.btn-outline:focus,
 .btn-default.btn-outline:hover {
-    background: #e4e7ea
+    background: #e4e7ea;
 }
 .btn-primary.btn-outline {
     color: #7460ee;
-    background-color: #fff
+    background-color: #fff;
 }
 .btn-primary.btn-outline.focus,
 .btn-primary.btn-outline:focus,
@@ -1176,7 +1176,7 @@ pre {
 .btn-warning.btn-outline:focus,
 .btn-warning.btn-outline:hover {
     background: #fb4;
-    color: #fff
+    color: #fff;
 }
 .btn-danger.btn-outline {
     color: #f33155;
@@ -1186,7 +1186,7 @@ pre {
 .btn-danger.btn-outline:focus,
 .btn-danger.btn-outline:hover {
     background: #f33155;
-    color: #fff
+    color: #fff;
 }
 .button-box .btn {
     margin: 0 8px 8px 0
@@ -1196,7 +1196,7 @@ pre {
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,
 .btn-warning.btn-outline:hover {
-    color: #fff
+    color: #fff;
 }
 .btn-label {
     background: rgba(0, 0, 0, .05);
@@ -2533,10 +2533,20 @@ ul.common li a:hover {
     float: left;
     padding: 10px;
     position: relative;
-    margin: 0 10px 15px 0
+    margin: 0 10px 15px 0;
+}
+.message-center .user-img1 {
+    width: 10px;
+    float: left;
+    padding: 10px;
+    position: relative;
+    margin: 0 10px 15px 0;
 }
 .message-center .user-img img {
-    width: 100%
+    width: 100%;
+}
+.message-center .user-img1 img {
+    width: 90%;
 }
 .message-center .user-img .profile-status {
     border: 2px solid #fff;
@@ -2609,10 +2619,20 @@ ul.common li a:hover {
     border-bottom: 1px solid rgba(120, 130, 140, .13);
     display: table;
     width: 100%;
-    padding: 20px 25px
+    padding: 20px 25px;
+}
+.comment-center .comment-body1 {
+    border-bottom: 1px solid rgba(120, 130, 140, .13);
+    display: inline-block;
+    width: 100%;
+    padding: 20px 25px;
 }
 .comment-center .comment-body:hover {
     background: #f9ece3;
+    transition: background ease-in-out 0.3s;
+}
+.comment-center .comment-body1:hover {
+    background: transparent;
     transition: background ease-in-out 0.3s;
 }
 
@@ -2622,7 +2642,17 @@ ul.common li a:hover {
     position: relative;
     margin: 0 10px 0 0;
 }
+.comment-center .user-img1 {
+    width: 45px;
+    display: table-cell;
+    position: relative;
+    margin: 0 5px 0 0;
+    padding-left: 14px;
+}
 .comment-center .user-img img {
+    width: 100%
+}
+.comment-center .user-img1 img {
     width: 100%
 }
 .comment-center .mail-contnet {
@@ -2650,7 +2680,7 @@ ul.common li a:hover {
 }
 
 .comment-center .mail-contnet .mail-desc1 {
-    font-size: 14px;
+    font-size: 12px;
     display: block;
     margin: 15px 0;
     line-height: 13px;
@@ -3144,9 +3174,10 @@ ul.common li a:hover {
     border-color: #707cd2
 }
 .alert-info {
-    background: #41b3f9;
+    background: #af1916;
     color: #fff;
-    border-color: #41b3f9
+    border-color: #af1916;
+    opacity: 0.5;
 }
 .alert-info .closed,
 .alert-info a.closed:hover {
@@ -5507,10 +5538,10 @@ ul.wallet-list li a:hover {
     position: absolute;
     right: 0;
     display: none;
-    top: 20px
+    top: 20px;
 }
 .sk-chat-widgets .chatonline li:hover .call-chat {
-    display: block
+    display: block;
 }
 .chat-box-input {
     border: 0;
@@ -5951,10 +5982,14 @@ ul.select-row-icon li a:hover i.whn-hov {
     margin-left: .3em
 }
 .pull-right {
-    float: right
+    float: right;
 }
 .pull-left {
-    float: left
+    float: left;
+}
+.pull-center {
+    float: center;
+    margin: center;
 }
 .fa.pull-left {
     margin-right: .3em
@@ -8037,6 +8072,7 @@ ul.select-row-icon li a:hover i.whn-hov {
     background-color: #f7fafc;
     color: #686868;
     padding: 5px 0;
+    list-style: none;
     transition: background-color .2s, color .2s
 }
 .tabs-style-bar nav ul li a:focus,
@@ -9797,7 +9833,7 @@ table.dataTable thead .sorting_desc::after {
 }
 .pro-list {
     margin-top: 15px
-}
+}git
 .pro-detail,
 .pro-img {
     display: table-cell;
@@ -10343,7 +10379,3 @@ ul.pro-amenities li span i {
     }
 }
 
-#appointments {
-    margin: center;
-    justify-content:center;
-}

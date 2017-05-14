@@ -38,7 +38,7 @@
         <listener-class>listeners.StartupListener</listener-class>
     </listener>
     
-    <servlet>
+<!--    <servlet>
         <servlet-name>Message</servlet-name>
         <servlet-class>servlets.MessageServlet</servlet-class>
     </servlet>
@@ -47,17 +47,7 @@
         <servlet-name>Message </servlet-name>
         <url-pattern>/messages</url-pattern>
     </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>Notification</servlet-name>
-        <servlet-class>servlets.Notification</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>Notification</servlet-name>
-        <url-pattern>/notifications</url-pattern>
-    </servlet-mapping>
-    
+    -->
     <welcome-file-list>
         <welcome-file>
             index.jsp

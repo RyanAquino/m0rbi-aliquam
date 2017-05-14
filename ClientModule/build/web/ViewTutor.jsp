@@ -41,7 +41,7 @@
                               <div class="white-box">
                         <h2 class="box-title">Schedule</h2>
                             <table class="table">
-                                    <form action="checkbox"></form>
+                                   
                                     <tbody>
                                         <tr>
                                             <td>Monday</td>

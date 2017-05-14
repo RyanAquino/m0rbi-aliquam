@@ -4,6 +4,9 @@
     Author     : Mai Radie
 --%>
 
+<%@page import="java.io.PrintWriter"%>
+<%@page import="beans.Transactions"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +105,7 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                         </div>
+                    </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
@@ -114,36 +117,44 @@
                 <!-- .row -->
                 <div class="row">
                     <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12">
-                        <div class="white-box">
-                            <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
-                            </div>
-                            <h3 class="box-title">Transactions</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Transaction ID</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>21543</td>
-                                            <td>09-21-15</td>
-                                            <td>paid</td>
-                                            <td>500.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>21564</td>
-                                            <td>09-30-15</td>
-                                            <td>paid</td>
-                                            <td>200.00</td>
-                                        </tr>
-                                    </tbody>
-                                    
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="white-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
+                                </div>
+
+                                <!--------------------------------------------------->
+
+
+                                <h3 class="box-title">Transactions</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Transaction ID</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                            <% ArrayList<Transactions> tList = (ArrayList<Transactions>) request.getAttribute("transactions"); %>
+
+                                            <% for(int i = 0; i < tList.size(); i++) { %>
+                                            <tr> 
+                                                <td><%= tList.get(i).getTransaction_id() %></td>
+                                                <td></td>
+                                                <td><%= tList.get(i).getPaid() %></td>
+                                                <td><%= tList.get(i).getAmount() %></td>
+
+                                            </tr>
+                                            <% } %>
+
+
+
+                                        </tbody>
+
                                 </table>
                             </div>
 

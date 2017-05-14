@@ -71,8 +71,9 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
 </div>
 
 <div class="form">
-  <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg"/></div>
-
+  <div class="asd"><img class="asd" src="img/icon.png"/></div>
+<br>
+ <br>
   <form class="login-form" method="POST" action="">
     <input type="text" placeholder="username" name="username" />
     <input type="password" placeholder="password" name="password" />

@@ -111,6 +111,7 @@
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
       <link rel="stylesheet" href="css/style.css">
 
@@ -121,12 +122,12 @@
   
 <div class="container">
   <div class="info">
-    <h1>Flat Login Form</h1><span>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span>
+    <h1>Mansanas Tutorial</h1><span>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span>
   </div>
 </div>
 
 <div class="form">
-  <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg"/></div>
+  <div class="asd"><img src="img/applelogo.png"    /></div>
 
   <form class="form" method="POST">
     <input type="text" placeholder="Firstname" name = "firstname" required/>
@@ -135,9 +136,12 @@
     <input type="email" placeholder="Email addres" name = "email" required/>
     <input type="number" placeholder="Contact number" name = "contact" required/>
 
-   <label>Male<input type="radio" name = sex value = male required/></label>
-   <label>Female<input type="radio" name = sex value = female required/></label>
+  <span>
+      
+   <label class="radio-inline">Male<input type="radio" name = sex value = male required/></label>
+   <label class="radio-inline">Female<input type="radio" name = sex value = female required/></label>
 
+  </span>
     <input type="text" placeholder="Username" name = "username" required/>
     <input type="password" placeholder="Password" name = "userpassword" minlength="6" required/>
     <input type="password" placeholder="Re enter password" name = "userpassword2" required/>
@@ -147,6 +151,12 @@
        <option value="sp">Service Provider</option>
        <option value="client">Client</option>    
      </select>
+     
+     <ul class="dropdown-menu">
+         <li>tite</li>
+         <li>asdasds</li>
+     </ul>
+     
 
     <button type="submit" name="register">Register</button>
     <p class="message">Already registered? <a href="index.php">Sign In</a></p>

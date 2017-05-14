@@ -81,3 +81,20 @@
      });
      sparklineLogin();
  });
+ 
+ function addParameter(){
+	 var select = document.querySelector("#mySelect");
+	 var strUser = select.options[select.selectedIndex].text;
+	 var paramName = "&serv=";
+	 var currentUrl = window.location.href;
+	 currentUrl = currentUrl.toString();
+	 
+	 while(currentUrl.includes('&')){
+		 currentUrl = currentUrl.substring(0 , currentUrl.length - 1 )  ;  
+	}	 
+	 
+	 var output = currentUrl.concat(paramName,strUser);
+
+	 window.location.href = output;
+	 
+ }

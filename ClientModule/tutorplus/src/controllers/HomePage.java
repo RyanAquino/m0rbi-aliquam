@@ -43,7 +43,7 @@ public class HomePage extends HttpServlet {
 	    //create a session for user log in
 		int user = 1;
 		HttpSession session=request.getSession();  
-	      session.setAttribute("userName",2);
+	      session.setAttribute("userName",user);
 	        
 		ArrayList<Category> catList = new ArrayList<Category>();
 		ArrayList<ServiceProvider> spList = new ArrayList<ServiceProvider>();
@@ -86,7 +86,8 @@ public class HomePage extends HttpServlet {
 	            	c.setServList();
 	            	catList.add(c);
 	            }
-	            String parame = (String)request.getParameter("cat");
+
+	            request.setAttribute("categList", catList);
 	            
 	            //3rd query for service provider 
 	            String sql3 = "SELECT * FROM sp";
@@ -94,7 +95,7 @@ public class HomePage extends HttpServlet {
 	            rs = st.executeQuery(sql3);
 	            while(rs.next()){
 	            	s = new ServiceProvider();
-	            	s.setId(rs.getString(1));
+	            	s.setId(rs.getInt(1));
 	            	s.setReqStatus(rs.getString(2));
 	            	s.setLastName(rs.getString(3));
 	            	s.setFirstName(rs.getString(4));
@@ -103,12 +104,13 @@ public class HomePage extends HttpServlet {
 	            	s.setEmail(rs.getString(8));
 	            	s.setContact(rs.getString(9));
 	            	s.setAddress(rs.getString(10));
-	            	
+	            	s.setServList();
+	            	spList.add(s);
 	            }
+	            request.setAttribute("spServ",spList);
 	            
+	           
 	            
-	            
-	            request.setAttribute("categList", catList);
 	            RequestDispatcher dispatchers = request.getRequestDispatcher("home.jsp");
 	            dispatchers.forward(request,response);
 	        } catch (Exception e){

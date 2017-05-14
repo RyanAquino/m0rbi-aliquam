@@ -57,7 +57,7 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a class="menu-top-active" href="index.html">Dashboard</a></li>
-                            <li><a href="requests.html">Account Requests</a></li>
+                            <li><a href="requests.php">Account Requests</a></li>
                             <li><a href="addcategory.html">Add Category</a></li>
                             <li><a href="forms.html">Forms</a></li>
                              <li><a href="profile.html">Profile</a></li>

@@ -112,7 +112,7 @@ public class MessageServlet extends HttpServlet {
                         
                         
                         inner.add(m);
-                        inner.add(sp);
+//                   /     inner.add(sp);
                         
                     }
                     outer.add(inner);

@@ -52,9 +52,9 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a  href="admin.php">Dashboard</a></li>
-                            <li><a class="menu-top-active" >Account Requests</a></li>
-                            <li><a href="addcategory.html">Add Category</a></li>
+                            <li><a  href="index.html">Dashboard</a></li>
+                            <li><a  href="requests.html">Account Requests</a></li>
+                            <li><a class="menu-top-active" href="addcategory.html">Add Category</a></li>
                             <li><a href="forms.html">Forms</a></li>
                              <li><a href="login.html">Login Page</a></li>
                             <li><a href="blank.html">Blank Page</a></li>
@@ -69,58 +69,13 @@
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
-            <div class="row">
+             <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Requests</h1>
+                        <h1 class="page-head-line">Add New Category</h1>
                     </div>
                 </div>
-                <div class="row">
-                <div class="col-md-6">
-                  <!--   Kitchen Sink -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Customers
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped  table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- End  Customers -->
-                </div>
-                <div class="col-md-6">
-                     <!--   Basic Table  -->
-                    <div class="panel panel-default">
+                
+                <div class="panel panel-default">
                         <div class="panel-heading">
                             Service Providers
                         </div>
@@ -159,38 +114,33 @@
                             </div>
                         </div>
                     </div>
-                      <!-- End  SP  -->
-                    </div>
-            </div>
-              
-              <div class="asd">
-                  
-               <div class="col-md-10" >
-                   
-                <div class="panel panel-danger">
+                
+                <div class="asd">
+                    
+        <div class="panel panel-danger">
                     <div class="panel-heading">
-                        Manage Requests 
+                        Category 
                     </div>
                     <div class="panel-body">
-                        <div class="form-group has-success" >
-                            
-                        <label class="control-label">USERNAME : </label>
-                        <input type="text" class="form-control" />
-                        </div>
                         
-                        <hr/>
-                        <a href="#" class="btn btn-warning"><span class="fa fa-times" aria-hidden="true"></span> Reject </a>&nbsp;
-                      <a href="#" class="btn btn-success"><span class="fa fa-check" aria-hidden="true"></span>  Approve </a>
+                        <label>Category Name : </label>
+                        <input type="text" class="form-control" />
+                        <label>Enter Subject :  </label>
+                        <input type="text" class="form-control" />
+                        <label>Enter Message : </label>
+                        <textarea rows="9" class="form-control"></textarea>
+                        <hr />
+                        <a href="#" class="btn btn-warning"><span class="fa fa-times-circle" aria-hidden="true"></span> Clear </a>&nbsp;
+                      <a href="#" class="btn btn-success"><span class="fa fa-plus-circle" aria-hidden="true"    ></span>  Add Category </a>
                     </div>
                     <div class="panel-footer text-muted">
                         <strong>Note : </strong>Please note that we track all messages so don't send any spams.
                     </div>
-                </div>    
                 </div>
-              </div>
-               </div>
-            </div>
-                
+                </div>
+
+        </div>
+    </div>
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="container">

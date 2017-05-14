@@ -100,7 +100,7 @@
                                                             <div class="user-content">
                                                                 <h2 class="text-white"><c:out value="${students.firstName}"/><br></h2>
                                                                 <h6 class="text-white">If your looking someone ...</h6>
-                                                                <a href="/tutorplus/CheckProvider"><button type="click">View tutor</button></a>
+                                                                <a href="/ClientModule/CheckProvider"><button type="click">View tutor</button></a>
                                                             </div>
                                                         </div>
                                                     </div> 

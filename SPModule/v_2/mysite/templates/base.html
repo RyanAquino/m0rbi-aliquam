@@ -168,7 +168,10 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">{% block subtitle %}Blank Page{% endblock %}</h4> </div>
+                        {% block titleblock %}
+                        <h4 class="page-title">{% block subtitle %}Blank Page{% endblock %}</h4> 
+                        {% endblock %}
+                    </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 {% block body %}
@@ -194,6 +197,17 @@
     <script src="{% static 'js/waves.js' %}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'js/custom.min.js' %}"></script>
+    <!--Counter js -->
+    <script src="{% static 'plugins/bower_components/waypoints/lib/jquery.waypoints.js' %}"></script>
+    <script src="{% static 'plugins/bower_components/counterup/jquery.counterup.min.js' %}"></script>
+    <!-- chartist chart -->
+    <script src="{% static 'plugins/bower_components/chartist-js/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="{% static 'plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}">
+    </script>
+    <script src="{% static 'js/dashboard1.js' %}"></script>
+    <script src="{% static 'plugins/bower_components/toast-master/js/jquery.toast.js' %}"></script>
 </body>
 
 </html>

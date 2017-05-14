@@ -44,6 +44,7 @@ def get_context(request):
     
     return context
 
+<<<<<<< HEAD
 def verdict(request, req_id):
     req = Request.objects.filter(request_id=req_id)
     if 'accept' in request.POST:
@@ -55,6 +56,8 @@ def verdict(request, req_id):
     
     return HttpResponse(template.render(get_context(request), request))
 
+=======
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
 @register.filter
 def get_end_time(dictionary, value):
     end_dict = dictionary.values('time')[0]
@@ -72,11 +75,24 @@ def get_sched_day(dictionary, value):
 
 @register.filter
 def get_client_app(dictionary, value):
+<<<<<<< HEAD
     first_name = dictionary.values('firstname')[0] 
     first_name = first_name.pop('firstname')
     last_name = dictionary.values('lastname')[0]
     last_name = last_name.pop('lastname')
     client_name = first_name + " " + last_name
+=======
+    #first_name = dictionary.values('firstname')[0] 
+    #first_name = first_name.pop('firstname')
+    #last_name = dictionary.values('lastname')[0]
+    #last_name = last_name.pop('lastname')
+    #client_name = first_name + " " + last_name
+    #return client_name
+    req_ret = Request.objects.filter(request_id=value).values()[0]
+    req_value = req_ret.pop('client_id')
+    client_ret = Client.objects.filter(client_id=req_value).values()[0]
+    client_name = client_ret.pop('firstname') + " " + client_ret.pop('lastname')
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
     return client_name
 
 @register.filter

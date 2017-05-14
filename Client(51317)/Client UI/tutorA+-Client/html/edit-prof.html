@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Tutor A+</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/icon.png">
+    <title>Edit Profile</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -49,10 +49,10 @@
                     <!-- Logo -->
                     <a class="logo" href="index.html">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="../plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo icon--><img src="../plugins/images/icon.png" alt="home" class="light-logo" />
                      </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo text--><img src="../plugins/images/icon.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/logo-text.png" alt="home" class="light-logo" />
                      </span> </a>
                 </div>
                 <!-- /Logo -->
@@ -96,7 +96,7 @@
                         <a href="transactions.html" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Transactions</a>
                     </li>
                     <li>
-                        <a href="home.html" class="waves-effect"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</a>
+                       <a href="main/home.html" class="waves-effect"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</a>
                     </li>
 
                 </ul>
@@ -112,7 +112,11 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Profile page</h4> </div>
+                        <h4 class="page-title">
+                            <button type="submit" class="btn-rounded btn btn-default btn-outline">
+                                <a href="profile.html">
+                            <i class="fa fa-arrow-left fa-fw"></i> Back to Profile</a></button>
+                           </h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
@@ -264,23 +268,12 @@
                                         <input type="text" placeholder="123 456 7890" class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Message</label>
+                                    <label class="col-md-12">Address</label>
                                     <div class="col-md-12">
-                                        <textarea rows="5" class="form-control form-control-line"></textarea>
-                                    </div>
+                                        <input type="text" class="form-control form-control-line"> </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-12">Select Country</label>
-                                    <div class="col-sm-12">
-                                        <select class="form-control form-control-line">
-                                            <option>London</option>
-                                            <option>India</option>
-                                            <option>Usa</option>
-                                            <option>Canada</option>
-                                            <option>Thailand</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                
+                                
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success">Save Profile</button>
@@ -293,7 +286,7 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+            <footer class="footer text-center"> 2017 &copy; Mansanas Tutorials brought to you by Group 3 </footer>
         </div>
         <!-- /#page-wrapper -->
     </div>

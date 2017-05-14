@@ -17,6 +17,10 @@ public class Transactions {
         this.request_id = request_id;
     }
 
+    public Transactions() {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getTransaction_id() {
         return transaction_id;
     }

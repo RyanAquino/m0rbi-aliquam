@@ -9,22 +9,30 @@
 
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
-                Object firstname = session.getAttribute("firstname");
-                String sql = "SELECT * FROM client where firstname = " + firstname + "";
+                int userId = (Integer) session.getAttribute("userName");
+                String sql = "SELECT * FROM client where client_id = " + userId + "";
+                String sql1 = "SELECT * FROM reuqest where client_id = " + userId + "";
 	        Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
                 String name = null;
 	        String lastname = null;
                 String email = null;
 	        String password = null;
+                String address = null;
+                String username = null;
                     if(rs.next()){
 	            	name = rs.getString("firstname");
 	            	lastname = rs.getString("lastname");
                         email = rs.getString("email");
                         password = rs.getString("password");
-	            }
-                    
-%>
+                        address = rs.getString("address");
+                        username = rs.getString("username");
+                    }
+               String sql2 = "SELECT * FROM schedule a, service b, request c "
+                       + "WHERE a.service_id = b.service_id && c.sched_id = a.sched_id;";
+               ResultSet ts = st.executeQuery(sql);
+               ts = st.executeQuery(sql2);
+%>      
 <!DOCTYPE html>
 <html>
 
@@ -74,11 +82,7 @@
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
-                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
-                    </li>
-                    <li>
-                        <a class="profile-pic" href="#"> <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Client</b></a>
+                        <a class="profile-pic" href="#"> <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"><%=name%> <%=lastname%></b></a>
                     </li>
                 </ul>
             </div>
@@ -142,8 +146,8 @@
                                 <div class="overlay-box">
                                     <div class="user-content">
                                         <a href="javascript:void(0)"><img src="plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
-                                        <h4 class="text-white">User Name</h4>
-                                        <h5 class="text-white">info@myadmin.com</h5> </div>
+                                        <h4 class="text-white"><%=username%></h4>
+                                        <h5 class="text-white"><%=email%></h5> </div>
                                 </div>
                             </div>
                             
@@ -151,34 +155,7 @@
                         <div class="white-box">
                         <h2 class="box-title">Schedule</h2>
                             <table class="table">
-                                    <form action="checkbox">
-                                    <tbody>
-                                        <tr>
-                                            <td>Monday</td>
-                                            <td>10:00-11:00</td>
-                                        </tr>                                        <tr>
-                                            <td>Tuesday</td>
-                                            <td>Not Available</td>
-                                        </tr>                                        <tr>
-                                            <td>Wednesday</td>
-                                            <td>Not Available</td>
-                                        </tr>                                        <tr>
-                                            <td>Thursday</td>
-                                            <td>10:00-11:00</td>
-                                        </tr>                                        <tr>
-                                            <td>Friday</td>
-                                            <td>7:30-9:00</td>
-                                        </tr>                                        <tr>
-                                            <td>Saturday</td>
-                                            <td>1:00-2:00</td>
-                                        </tr>                                        <tr>
-                                            <td>Sundayday</td>
-                                            <td>Not Available</td>
-                                        </tr>
-                                        
-                                        
-                                    </tbody>
-                                    </form>
+
                             </table>
                         </div>
                     </div>
@@ -189,44 +166,22 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Full Name</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="<%=name%>" class="form-control form-control-line"> </div>
+                                        <p><%=name%> <%=lastname%></p>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" placeholder="<%=email%>" class="form-control form-control-line" name="example-email" id="example-email"> </div>
+                                        <p><%=email%></p>  </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Password</label>
+                                    <label for="example-email" class="col-md-12">Address</label>
                                     <div class="col-md-12">
-                                        <input type="password" value="<%=password%>" class="form-control form-control-line"> </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Phone No</label>
-                                    <div class="col-md-12">
-                                        <input type="text" placeholder="123 456 7890" class="form-control form-control-line"> </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Message</label>
-                                    <div class="col-md-12">
-                                        <textarea rows="5" class="form-control form-control-line"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-12">Select Country</label>
-                                    <div class="col-sm-12">
-                                        <select class="form-control form-control-line">
-                                            <option>London</option>
-                                            <option>India</option>
-                                            <option>Usa</option>
-                                            <option>Canada</option>
-                                            <option>Thailand</option>
-                                        </select>
-                                    </div>
+                                        <p><%=address%></p>  </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success"><i class="fa fa-edit fa-fw"></i><a href="edit-prof.html">Edit Profile</a></button>
+                                        <button class="btn btn-success"><i class="fa fa-edit fa-fw"></i><a href="EditProf.jsp">Edit Profile</a></button>
                                     </div>
                                 </div>
                             </form>

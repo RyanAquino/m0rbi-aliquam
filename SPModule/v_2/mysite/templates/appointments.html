@@ -2,7 +2,11 @@
 {% block title %}Tutor A+ | Appointment{% endblock %}
 {% block subtitle %}Appointment{% endblock %}
 {% block body %}
+<<<<<<< HEAD
 {% load staticfiles%}
+=======
+{% load staticfiles %}
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
                <div class="row">
                     <!-- .col -->
                     <div class="col-md-12 col-lg-8 col-sm-12">
@@ -10,12 +14,16 @@
                             <h3 class="box-title">Appointments Today</h3>
                             <div class="comment-center p-t-10">
                                 
+<<<<<<< HEAD
                                 {% if app %}
+=======
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
                                 {% for appointments in app %}
                                 <div class="comment-body">
                                     <div class="user-img"> <img src="{% static 'plugins/images/users/pawandeep.jpg' %}" alt="user" class="img-circle">
                                     </div>
                                     <div class="mail-contnet">
+<<<<<<< HEAD
                                         <h5>{{app|get_client_dash:appointments.request_id}}</h5><span class="time">Starts at {{appointments.time}}</span><br>
                                         <span class="time">Ends at {{app    |get_end_time:appointments.time}}</span>
                                         <br/><span class="mail-desc1">Service: Violin Lessons</span><br><span class="mail-desc1">Address: Lower Bonifacio, Baguio City</span>
@@ -30,6 +38,18 @@
                                         </div>
                                     </div>
                                 {% endif %}
+=======
+                                        <h5>{{app|get_client_app:appointments.request_id}}</h5><span class="time">Starts at {{appointments.time}}</span><br>
+                                        <span class="time">Ends at {{app    |get_end_time:appointments.time}}</span>
+                                        <br/><span class="mail-desc1">Service: {{app    |get_service_dash:appointments.request_id}} Lessons</span><br><span class="mail-desc1">Address: {{app|get_client_add:appointments.request_id}}</span>
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <div class="comment-body">
+                                    <p>No appointments today</p>
+                                </div>
+                                {% endfor %}
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
                             </div>
                         </div>
                     </div>

@@ -82,7 +82,7 @@
             <div class="row">
                  <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="dashboard-div-wrapper bk-clr-one">
-                        <i  class="fa fa-book dashboard-div-icon" ></i>
+                        <i class="fa fa-book dashboard-div-icon" data-toggle="modal" data-target="#subcategory"></i>
 
                          <h5>Academics </h5>
                     </div>
@@ -134,6 +134,34 @@
             
         </div>
     </div>
+    
+    <div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="subcategory" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sub Categories for asd</h4>
+        </div>
+        <div class="modal-body">
+       <?php
+          include "subcategory.php";  
+        ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+    
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="container">

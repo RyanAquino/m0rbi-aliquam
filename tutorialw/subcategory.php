@@ -29,26 +29,20 @@ if ($i == 0){
     <?php echo $row['category'];?>
     </div>
     </div>
+<ul>
 
-    <div class="panel-body" id="table-wrapper">
-<div class="table-responsive" id="table-scroll">
-<table class="table table-striped table-hover">
 <?php
 }
 	
 	$ssquery = "SELECT username FROM service ";
     $sservicequery = mysqli_query($connect, $ssquery);
 	?>
-	<tr>
-	<td><?php echo $row['description'];?></td>
-	</tr>
+	<li><?php echo $row['description'];?></li>
 	<?php
 $i++;} 
 ?>
 
-</table>
-</div>
-</div>	
+</ul>	
 </body>
 </html>
 

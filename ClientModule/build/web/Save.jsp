@@ -21,14 +21,17 @@
 	        String password = null;
                 String address = null;
                 String username = null;
+                String contact = null;
                     if(rs.next()){
                         clientid = rs.getString("client_id");
 	            	name = rs.getString("firstname");
 	            	lastname = rs.getString("lastname");
                         email = rs.getString("email");
+                        contact = rs.getString("contact");
                         password = rs.getString("password");
                         address = rs.getString("address");
                         username = rs.getString("username");
+                        
                     }
                     
                     s = conn.createStatement();
@@ -36,11 +39,13 @@
                     String newlastname = request.getParameter("lastname");
                     String newemail = request.getParameter("email");
                     String newpassword = request.getParameter("password");
+                    String newcontact = request.getParameter("contact");
 
                        String sql1 = "UPDATE client " +"SET firstname = '"+ newname + "' " +
                                ", lastname = '"+ newlastname + "' " +
                                ", email = '"+ newemail + "' " + 
                                ", password = '"+ newpassword + "' " +
+                               ", contact = '"+ newcontact +"' " +
                                " WHERE client_id = '" + clientid + "' ";
 s.execute(sql1);
 

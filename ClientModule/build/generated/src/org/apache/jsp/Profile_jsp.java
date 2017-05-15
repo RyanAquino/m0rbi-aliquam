@@ -48,9 +48,10 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.1.16/tutorial", "root", "");
                 int userId = (Integer) session.getAttribute("userName");
                 String sql = "SELECT * FROM client where client_id = " + userId + "";
+                String sql1 = "SELECT * FROM reuqest where client_id = " + userId + "";
 	        Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
                 String name = null;
@@ -58,16 +59,18 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
                 String email = null;
 	        String password = null;
                 String address = null;
+                String username = null;
                     if(rs.next()){
 	            	name = rs.getString("firstname");
 	            	lastname = rs.getString("lastname");
                         email = rs.getString("email");
                         password = rs.getString("password");
                         address = rs.getString("address");
-	            }
-                    
+                        username = rs.getString("username");
+                    }
+               
 
-      out.write("\n");
+      out.write("      \n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("\n");
@@ -116,10 +119,6 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("                <!-- /Logo -->\n");
       out.write("                <ul class=\"nav navbar-top-links navbar-right pull-right\">\n");
-      out.write("                    <li>\n");
-      out.write("                        <form role=\"search\" class=\"app-search hidden-sm hidden-xs m-r-10\">\n");
-      out.write("                            <input type=\"text\" placeholder=\"Search...\" class=\"form-control\"> <a href=\"\"><i class=\"fa fa-search\"></i></a> </form>\n");
-      out.write("                    </li>\n");
       out.write("                    <li>\n");
       out.write("                        <a class=\"profile-pic\" href=\"#\"> <img src=\"plugins/images/users/varun.jpg\" alt=\"user-img\" width=\"36\" class=\"img-circle\"><b class=\"hidden-xs\">");
       out.print(name);
@@ -189,8 +188,12 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"overlay-box\">\n");
       out.write("                                    <div class=\"user-content\">\n");
       out.write("                                        <a href=\"javascript:void(0)\"><img src=\"plugins/images/users/genu.jpg\" class=\"thumb-lg img-circle\" alt=\"img\"></a>\n");
-      out.write("                                        <h4 class=\"text-white\">User Name</h4>\n");
-      out.write("                                        <h5 class=\"text-white\">info@myadmin.com</h5> </div>\n");
+      out.write("                                        <h4 class=\"text-white\">");
+      out.print(username);
+      out.write("</h4>\n");
+      out.write("                                        <h5 class=\"text-white\">");
+      out.print(email);
+      out.write("</h5> </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            \n");
@@ -198,34 +201,7 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"white-box\">\n");
       out.write("                        <h2 class=\"box-title\">Schedule</h2>\n");
       out.write("                            <table class=\"table\">\n");
-      out.write("                                    <form action=\"checkbox\">\n");
-      out.write("                                    <tbody>\n");
-      out.write("                                        <tr>\n");
-      out.write("                                            <td>Monday</td>\n");
-      out.write("                                            <td>10:00-11:00</td>\n");
-      out.write("                                        </tr>                                        <tr>\n");
-      out.write("                                            <td>Tuesday</td>\n");
-      out.write("                                            <td>Not Available</td>\n");
-      out.write("                                        </tr>                                        <tr>\n");
-      out.write("                                            <td>Wednesday</td>\n");
-      out.write("                                            <td>Not Available</td>\n");
-      out.write("                                        </tr>                                        <tr>\n");
-      out.write("                                            <td>Thursday</td>\n");
-      out.write("                                            <td>10:00-11:00</td>\n");
-      out.write("                                        </tr>                                        <tr>\n");
-      out.write("                                            <td>Friday</td>\n");
-      out.write("                                            <td>7:30-9:00</td>\n");
-      out.write("                                        </tr>                                        <tr>\n");
-      out.write("                                            <td>Saturday</td>\n");
-      out.write("                                            <td>1:00-2:00</td>\n");
-      out.write("                                        </tr>                                        <tr>\n");
-      out.write("                                            <td>Sundayday</td>\n");
-      out.write("                                            <td>Not Available</td>\n");
-      out.write("                                        </tr>\n");
-      out.write("                                        \n");
-      out.write("                                        \n");
-      out.write("                                    </tbody>\n");
-      out.write("                                    </form>\n");
+      out.write("\n");
       out.write("                            </table>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
@@ -251,7 +227,7 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</p>  </div>\n");
       out.write("                                </div>\n");
       out.write("                                <div class=\"form-group\">\n");
-      out.write("                                    <label for=\"example-email\" class=\"col-md-12\">Email</label>\n");
+      out.write("                                    <label for=\"example-email\" class=\"col-md-12\">Address</label>\n");
       out.write("                                    <div class=\"col-md-12\">\n");
       out.write("                                        <p>");
       out.print(address);
@@ -259,7 +235,7 @@ public final class Profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\n");
       out.write("                                <div class=\"form-group\">\n");
       out.write("                                    <div class=\"col-sm-12\">\n");
-      out.write("                                        <button class=\"btn btn-success\"><i class=\"fa fa-edit fa-fw\"></i><a href=\"edit-prof.html\">Edit Profile</a></button>\n");
+      out.write("                                        <button class=\"btn btn-success\"><i class=\"fa fa-edit fa-fw\"></i><a href=\"EditProf.jsp\">Edit Profile</a></button>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </form>\n");

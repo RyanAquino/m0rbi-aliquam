@@ -11,7 +11,6 @@
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
                 int userId = (Integer) session.getAttribute("userName");
                 String sql = "SELECT * FROM client where client_id = " + userId + "";
-                String sql1 = "SELECT * FROM reuqest where client_id = " + userId + "";
 	        Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
                 String name = null;
@@ -20,18 +19,17 @@
 	        String password = null;
                 String address = null;
                 String username = null;
+                String contact = null;
                     if(rs.next()){
 	            	name = rs.getString("firstname");
 	            	lastname = rs.getString("lastname");
                         email = rs.getString("email");
+                        contact = rs.getString("contact");
                         password = rs.getString("password");
                         address = rs.getString("address");
                         username = rs.getString("username");
                     }
-               String sql2 = "SELECT * FROM schedule a, service b, request c "
-                       + "WHERE a.service_id = b.service_id && c.sched_id = a.sched_id;";
-               ResultSet ts = st.executeQuery(sql);
-               ts = st.executeQuery(sql2);
+               
 %>      
 <!DOCTYPE html>
 <html>
@@ -73,10 +71,10 @@
                     <!-- Logo -->
                     <a class="logo" href="index.jsp">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo icon--><img src="plugins/images/icon.png" alt="home" class="light-logo" />
                      </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo text--><img src="plugins/images/icon.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="plugins/images/logo-text.png" alt="home" class="light-logo" />
                      </span> </a>
                 </div>
                 <!-- /Logo -->
@@ -178,6 +176,11 @@
                                     <label for="example-email" class="col-md-12">Address</label>
                                     <div class="col-md-12">
                                         <p><%=address%></p>  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="example-email" class="col-md-12">Contact</label>
+                                    <div class="col-md-12">
+                                        <p><%=contact%></p>  </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">

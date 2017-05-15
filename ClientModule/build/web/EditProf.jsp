@@ -19,13 +19,16 @@
 	        String password = null;
                 String address = null;
                 String username = null;
+                String contact = null;
                     if(rs.next()){
 	            	name = rs.getString("firstname");
 	            	lastname = rs.getString("lastname");
                         email = rs.getString("email");
+                        contact = rs.getString("contact");
                         password = rs.getString("password");
                         address = rs.getString("address");
                         username = rs.getString("username");
+                        
                     }
                     
 %>
@@ -78,12 +81,12 @@
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="index.jsp">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo icon--><img src="plugins/images/icon.png" alt="home" class="light-logo" />
                      </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo text--><img src="plugins/images/icon.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="plugins/images/logo-text.png" alt="home" class="light-logo" />
                      </span> </a>
                 </div>
                 <!-- /Logo -->
@@ -159,109 +162,6 @@
                             </div>
                             
                         </div>
-                        <div class="white-box">
-                        <h2 class="box-title">Schedule</h2>
-                            <table class="table">
-                                    <form action="checkbox">
-                                    <tbody>
-                                        <tr>
-                                            <td>Monday</td>
-                                            <td>
-                                            <select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select>
-                                            </td>
-                                        </tr>                                        <tr>
-                                            <td>Tuesday</td>
-                                            <td><select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select></td>
-                                        </tr>                                        <tr>
-                                            <td>Wednesday</td>
-                                            <td><select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select>
-                                            </td>
-                                        </tr>                                        <tr>
-                                            <td>Thursday</td>
-                                            <td><select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select>
-                                            </td>
-                                        </tr>                                        <tr>
-                                            <td>Friday</td>
-                                            <td><select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select>
-                                            </td>
-                                        </tr>                                        <tr>
-                                            <td>Saturday</td>
-                                            <td><select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select>
-                                            </td>
-                                        </tr>                                        <tr>
-                                            <td>Sundayday</td>
-                                            <td><select class="form-control form-control-line">
-                                            <option>Not Available</option>
-                                            <option>7:30-8:30</option>
-                                            <option>8:30-9:30</option>
-                                            <option>9:30-10:30</option>
-                                            <option>10:30-11:30</option>
-                                            <option>1:00-2:00</option>
-                                            <option>2:00-3:00</option>
-                                            <option>3:00-4:00</option>
-                                            </select>
-                                            </td>
-                                        </tr>
-                                        
-                                        
-                                    </tbody>
-                                    </form>
-                            </table>
-                        </div>
                     </div>
                     
                     <div class="col-md-8 col-xs-12">
@@ -285,7 +185,12 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Password</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<%=password%>" class="form-control form-control-line" name="password"> </div>
+                                        <input type="password" value="<%=password%>" class="form-control form-control-line" name="password"> </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Contact</label>
+                                    <div class="col-md-12">
+                                        <input type="text" value="<%=contact%>" class="form-control form-control-line" name="contact"> </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">

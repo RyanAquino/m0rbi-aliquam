@@ -6,8 +6,8 @@
 </head>
 <body>
 	<form action="" method="post">
-	<input type="text" name=search placeholder ="search">
-	<button type="submit" name=submit value=submit>Submit</button>
+	<input type="text" name=search >
+	<button type="submit" name=submit value=submit>Search</button>
 	</form>
 	<br>
 		

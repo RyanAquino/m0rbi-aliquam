@@ -17,11 +17,10 @@
         
         
         $addcategory = mysqli_query($connect, $newCat);
-      echo "<div class='alert'>";
-            echo "<span class='closebtn' onclick='this.parentElement.style.display='none';'>&times;</span>"; 
-            echo "Category added.";
-            echo "</div>";
-    }else if (isset($_POST['clearVal'])){
+        
+            echo "<script>alert('Category Added')</script>";
+            
+    }if (isset($_POST['clearVal'])){
         header:"location:addcategory.php";
     }
 
@@ -158,12 +157,15 @@
                         <form method="POST">
                             
                         <label>Category Name : </label>
-                        <input type="text" class="form-control" name="catname" />
+                        <input type="text" class="form-control" name="catname" required/>
                         <label>Enter Description : </label>
                         <textarea rows="9" class="form-control" name="desc" ></textarea>
                         <hr />
-                        <button class="btn btn-warning" name = "clearVal"><span class="fa fa-times-circle" aria-hidden="true"></span> Clear Values </button>&nbsp;
-                      <button type="submit" class="btn btn-success" name="addcat"><span class="fa fa-plus-circle" aria-hidden="true"    ></span>  Add Category </button>
+                        
+                      <button  type="submit" class="btn btn-success"  name="addcat"><span class="fa fa-plus-circle" aria-hidden="true"    ></span>  Add Category </button>
+                        </form>
+                        <form method="POST">
+                        <button  class="btn btn-warning" name = "clearVal" id="inlineasd"><span class="fa fa-times-circle" aria-hidden="true"></span> Clear Values </button>&nbsp;
                         </form>
                     </div>
                 </div>

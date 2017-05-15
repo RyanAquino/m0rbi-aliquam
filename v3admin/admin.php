@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                 </button>
                    <div>
-                   <img class="mansanas" src="assets/img/mansanas.png"/>
+                   <img class="mansanas" src="img/mansanas.png"/>
 
                    </div>
                     

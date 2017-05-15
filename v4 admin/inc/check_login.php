@@ -85,7 +85,6 @@ if(isset($_POST['submit'])){
 	
 	}else{
         echo "<div class='alert'>";
-            echo "<span class='closebtn' onclick='this.parentElement.style.display='none';'>&times;</span>"; 
             echo "Wrong Username of Password. Please try again.";
             echo "</div>";
 	}

@@ -11,7 +11,7 @@ $spStatus = "SELECT username FROM sp WHERE username = '$unameReject'";
 $sp_statusQuery = mysqli_query($connect, $spStatus);
 $sp_statusCount = mysqli_num_rows($sp_statusQuery);
 
-$cStatus = "SELECT username FROM client WHERE username = '$unameReject'";
+$cStatus = "SELECT username FROM client WHERE client_id = '$i'";
 $c_statusQuery = mysqli_query($connect, $cStatus);
 $c_statusCount = mysqli_num_rows($c_statusQuery);
 

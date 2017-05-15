@@ -158,7 +158,7 @@
                         <form method="POST">
                             
                         <label>Category Name : </label>
-                        <input type="text" class="form-control" name="catname"/>
+                        <input type="text" class="form-control" name="catname" required/>
                         <label>Enter Description : </label>
                         <textarea rows="9" class="form-control" name="desc"></textarea>
                         <hr />

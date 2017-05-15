@@ -7,7 +7,6 @@ include "inc/connection.php";
       <meta charset="UTF-8">
       <title>Document</title>
       <link rel="stylesheet" href="css/scroll-table.css">
-      <link rel="icon" href="img/apple.ico"> 
   </head>
   <body>
 
@@ -21,7 +20,7 @@ include "inc/connection.php";
     <table class="table table-striped table-hover">
         <?php
             $i = 0;
-            $queryall = "SELECT * FROM sp";
+            $queryall = "SELECT * FROM sp natural join rate natural join service where reg_status = 'approve'";
             $clientqueryall = mysqli_query($connect, $queryall);
             $querycount = mysqli_num_rows($clientqueryall);
             ?>
@@ -33,23 +32,27 @@ include "inc/connection.php";
                 <th><p class = "text">Address</p></th>
                 <th><p class = "text">Contact</p></th>
                 <th><p class = "text">Email</p></th>
-                <th><p class = "text">Status</p></th>
+                <th><p class = "text">Gender</p></th>
+                <th><p class = "text">Service</p></th>
+    
             </thead>
             
             <?php
             while ($i < $querycount){
             $row = mysqli_fetch_array($clientqueryall);
-            $query = "SELECT username FROM sp";
+            $query = "SELECT username FROM sp ";
             $clientquery = mysqli_query($connect, $query);
                 ?>
                    <tr>
                    <td><?php echo $row['firstname'];?></td>
                    <td><?php echo $row['lastname'];?></td>
-                   <td><b><?php echo $row['username'];?></b></td>
+                   <td><?php echo $row['username'];?></td>
                    <td><?php echo $row['address'];?></td>
                    <td><?php echo $row['contact'];?></td>
                    <td><?php echo $row['email'];?></td>
-                   <td><?php echo $row['reg_status'];?></td>
+                   <td><?php echo $row['gender'];?></td>
+                   <td><?php echo $row['description']?></td>
+      
                    </tr>
               <?php $i++;} ?>
     </table>

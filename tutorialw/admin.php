@@ -123,7 +123,11 @@
 
                 <?php
                 include 'sp-table.php';
+
                 ?>
+                 <?php 
+                    include "subcategory.php";
+                    ?>
 
                 </div>
             </div>

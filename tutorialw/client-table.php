@@ -27,10 +27,10 @@ include "inc/connection.php";
             $querycount = mysqli_num_rows($clientqueryall);
             ?>
             <thead>
-                <th><p class = "text">First Name</p></th>
-                <th><p class = "text">Last Name</p></th>
-                <th><p class = "text">Username</p></th>
-                <th><p class = "text">Address</p></th>
+                <th><span class = "text">First Name</span></th>
+                <th><span class = "text">Last Name</span></th>
+                <th><span class = "text">Username</span></th>
+                <th><span class = "text">Address</span></th>
                 <th><p class = "text">Contact</p></th>
                 <th><p class = "text">Email</p></th>
                 <th><p class = "text">Gender</p></th>

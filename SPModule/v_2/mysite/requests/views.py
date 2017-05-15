@@ -1,5 +1,9 @@
 from django.http import HttpResponse
+<<<<<<< HEAD
 from .models import Sp, Request, Service, Schedule, Client, Rate, Transaction
+=======
+from .models import Sp, Request, Service, Schedule, Client, Rate, Transaction, Appointments
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
 #from django.db import connection
 from django.template import loader
 from django.forms.models import model_to_dict
@@ -7,6 +11,10 @@ from django.shortcuts import render, get_object_or_404
 from django.template.defaulttags import register
 from django.utils.timezone import datetime
 from datetime import datetime, timedelta
+<<<<<<< HEAD
+=======
+import time
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
 import string
  
 def index(request):
@@ -35,9 +43,25 @@ def verdict(request, request_id):
         sched = sched.pop('sched_id')
         sched_val = Schedule.objects.filter(sched_id=sched)
         sched_val.update(status='taken')
+<<<<<<< HEAD
         serv = Schedule.objects.filter(sched_id=sched).values()[0]
         serv = serv.pop('service_id')
         
+=======
+        sched_val = Schedule.objects.filter(sched_id=sched).values()[0]
+        serv = Schedule.objects.filter(sched_id=sched).values()[0]
+        serv = serv.pop('service_id')
+        
+        #start time
+        time_val = sched_val.pop('time')
+        time_val = time_val.rsplit('-', 1)
+        time_val = time_val[0]
+        time_fin = datetime.strptime(time_val, '%I:%M %p').time()
+        
+        #day
+        day = sched_val.pop('day')
+        
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
         #rate
         sp_id_f = Request.objects.filter(request_id=req_id).values()[0]
         sp_id_f = sp_id_f.pop('sp_id')
@@ -45,7 +69,11 @@ def verdict(request, request_id):
         rate_amt = rate_amt.pop('rate')
         days = Request.objects.filter(request_id=req_id).values()[0]
         days = days.pop('noofdays')
+<<<<<<< HEAD
         rate_amt = noofdays * rate_amt
+=======
+        rate_amt = days * rate_amt
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
         
         #date, client
         today = datetime.now()
@@ -55,17 +83,54 @@ def verdict(request, request_id):
         #create transaction
         trans = Transaction(status='ongoing',paid='unpaid',amount=rate_amt, request_id=req_id, date=today)
         trans.save()
+<<<<<<< HEAD
         trans_o = trans.pop('transaction_id')
         
         #dates in appointment
         dow = dict(zip('monday tuesday wednesday thursday friday saturday sunday'.split(), range(7)))
         weekday = today.weekday()
         week_int = dateTimeObj + datetime.timedelta(days=(dow[reqDayOf.lower()]-weekday-1)%7+1)
+=======
+        trans = trans.transaction_id
+        
+        today = datetime.now()
+        
+        #create appointment
+        for num in range(0, days):
+            weekday = convert_day(day)
+            days_ahead = weekday - today.weekday()
+            if days_ahead <= 0: # Target day already happened this week
+                days_ahead += 7
+            today = today + timedelta(days_ahead)    
+            
+            appoint = Appointments(date=today, time=time_fin, status='ongoing', request_id=req_id, transaction_id=trans)
+            appoint.save()
+        
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
     elif 'reject' in request.POST:  
         req = Request.objects.filter(request_id=req_id)
         req.update(status = 'rejected')
     return render(request, 'requests.html', get_context(request))
 
+<<<<<<< HEAD
+=======
+def convert_day(day):
+    if day == 'Monday':
+        return 0
+    elif day == 'Tuesday':
+        return 1
+    elif day == 'Wednesday':
+        return 2
+    elif day == 'Thursday':
+        return 3
+    elif day == 'Friday':
+        return 4
+    elif day == 'Saturday':
+        return 5
+    elif day == 'Sunday':
+        return 6
+
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
 @register.filter
 def get_sched_time(dictionary, value):
     sched_time = dictionary.filter(sched_id=value).values()[0]

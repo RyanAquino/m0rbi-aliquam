@@ -75,7 +75,11 @@ def get_client_add(dictionary, value):
 @register.filter
 def get_service_dash(dictionary, value):
     req_id = dictionary.values('request_id')
+<<<<<<< HEAD
     req_ret = Request.objects.filter(request_id=req_id).values()[0]
+=======
+    req_ret = Request.objects.filter(request_id__in=req_id).values()[0]
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
     sched_value = req_ret.pop('sched_id')
     sched = Schedule.objects.filter(sched_id=sched_value).values()[0]
     req_value = sched.pop('service_id')

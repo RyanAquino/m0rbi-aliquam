@@ -162,10 +162,12 @@
          <br><br>
       <fieldset>
       <div class="radio-class">   
-       <label><input type="radio" name = sex value = male  class="radio" required/>Male</label>
+       <input type="radio" name = sex value = male  class="radio" id="radio1" required/>
+       <label for="radio1">I am a Male</label>
        </div>
        <div class="radio-class"> 
-       <label><input type="radio" name = sex value = female  class="radio" required/>Female</label>
+       <input type="radio" name = sex value = female  class="radio" id="radio2" required/>
+       <label for="radio2">I am a Female</label>
         </div>
     </fieldset>
      

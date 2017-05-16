@@ -125,7 +125,9 @@
                     <li>
                         <a href="Transactions.jsp" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Transactions</a>
                     </li>
-
+                    <li>
+                        <a href="logout.jsp" class="waves-effect"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>

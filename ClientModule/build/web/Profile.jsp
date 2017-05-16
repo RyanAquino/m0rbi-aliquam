@@ -6,7 +6,9 @@
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-
+    HttpSession sess = request.getSession(false);
+    if(session != null && session.getAttribute("userName") != null){
+    
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
                 int userId = (Integer) session.getAttribute("userName");
@@ -113,7 +115,9 @@
                     <li>
                         <a href="Transactions.jsp" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Transactions</a>
                     </li>
-
+                    <li>
+                        <a href="logout.jsp" class="waves-effect"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -213,3 +217,8 @@
     <script src="js/custom.min.js"></script>
 </body>  
 </html>
+<%
+}else{
+response.sendRedirect("startpage.html");
+}
+%>

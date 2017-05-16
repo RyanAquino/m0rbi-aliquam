@@ -35,20 +35,25 @@
                         <div class="comment-center p-t-10">
 
                             <% ArrayList<Message> m = (ArrayList<Message>) request.getAttribute("msgs"); %>
+                            <% ArrayList<ArrayList<Message>> outer = (ArrayList<ArrayList<Message>>) request.getAttribute("outer"); %>
+                            <% ArrayList<Message> inner = (ArrayList<Message>) request.getAttribute("inner"); %>
 
-                            <% for (int x = 0; x < m.size(); x++) {%>
-
+                            <% for (int x = 0; x < outer.size(); x++) {%>
+                                <% for (int y = 0; y < inner.size(); y++) {%>
                             <!-------------------------------------------------------------------------------------------->
                             <!-- link ni aj here -->
                             <a href="#"><div class="comment-body">
                                     <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
                                     </div>
                                     <div class="mail-contnet">
-                                        <h5></h5><span class="time"><%= m.get(x).getDate()%></span>
-                                        <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span>  
+                                        <h5><%= outer.get(x).get(y).get() %></h5><span class="time">
+                                            <%= outer.get(x).get(y).getDate() %>
+                                        </span>
+                                        <br/><span class="mail-desc"><%= outer.get(x).get(y).getMsg() %></span>  
                                     </div>
                                 </div></a>
 
+                            <% }%>
                             <% }%>
 
 

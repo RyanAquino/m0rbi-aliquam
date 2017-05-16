@@ -31,7 +31,10 @@ public class ViewMessageServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         String spid = request.getParameter("id");
+
         
+        
+        String client_id = "2";
         Message m = null;
         ServiceProvider sp = null;
 
@@ -48,7 +51,7 @@ public class ViewMessageServlet extends HttpServlet {
             Connection conn = DriverManager.getConnection(connUrl);
 
             // change bruh
-            String sql = "SELECT msg_id, m.sp_id, m.client_id,sender,msg,time,date,status, c.firstname as clientFN, c.lastname as clientLN, s.firstname as spFN, s.lastname as spLN from client c join MESSAGE m on c.client_id = m.client_id join sp s on s.sp_id = m.sp_id where c.client_id = 2 and m.sp_id="+spid +" order by date desc";
+            String sql = "SELECT msg_id, m.sp_id, m.client_id,sender,msg,time,date,status, c.firstname as clientFN, c.lastname as clientLN, s.firstname as spFN, s.lastname as spLN from client c join MESSAGE m on c.client_id = m.client_id join sp s on s.sp_id = m.sp_id where c.client_id =" +client_id +" and m.sp_id=" + spid + " order by date desc";
 
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -65,51 +68,48 @@ public class ViewMessageServlet extends HttpServlet {
                     m.setTime(rs.getString("time"));
                     m.setDate(rs.getString("date"));
                     m.setStatus(rs.getString("status"));
-                    
+
                     String x = rs.getString("sender");
                     String y = rs.getString("sp_id");
                     String z = rs.getString("client_id");
-                    
+
                     // client
-                    if(rs.getString("sender").equals(rs.getString("client_id"))) {
-                        
+                    if (rs.getString("sender").equals(rs.getString("client"))) {
+
                         m.setFirstname(rs.getString("clientFN"));
                         m.setLastname(rs.getString("clientLN"));
-                        
-                        
-                    } else if(rs.getString("sender").equals(rs.getString("sp_id"))) {
+
+                    } else if (rs.getString("sender").equals(rs.getString("sp"))) {
 
                         m.setFirstname(rs.getString("spFN"));
                         m.setLastname(rs.getString("spLN"));
-                        
+
                     }
-                    
-                    
+
                     msgList.add(m);
 
                 }
 
-               rs.close();
-               st.close();
-               conn.close();
-               
+                rs.close();
+                st.close();
+                conn.close();
+
                 request.setAttribute("msgs", msgList);
-                
+
 //                request.setAttribute("outer", outer);
 //                request.setAttribute("inner", inner);
-
                 RequestDispatcher rd = request.getRequestDispatcher("ViewMessages.jsp");
                 rd.forward(request, response);
 
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
-               
+
             }
-        } catch (Exception e) {          
-       
+        } catch (Exception e) {
+
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
-        
+
     }
-    
+
 }

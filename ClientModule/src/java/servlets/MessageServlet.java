@@ -35,6 +35,8 @@ public class MessageServlet extends HttpServlet {
         Message m = null;
         ServiceProvider sp = null;
 
+        String client_id = "2";
+        
         response.setContentType("text/html");
 
 //        if (session == null || session.getAttribute("user") == null) {
@@ -48,7 +50,7 @@ public class MessageServlet extends HttpServlet {
             Connection conn = DriverManager.getConnection(connUrl);
 
             // change bruh
-            String sql = "SELECT * from MESSAGE where client_id = 2 order by \"sp_id\"";
+            String sql = "SELECT * from MESSAGE where client_id =" +client_id + " order by \"sp_id\"";
 
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -89,7 +91,7 @@ public class MessageServlet extends HttpServlet {
                 ArrayList<Message> inner = null;
                 // get messages and put them in one list per sp
                 for (int x = 0; x < list.size(); x++) {
-                    sql2 = "SELECT * FROM MESSAGE NATURAL JOIN SP WHERE (client_id = 2 AND sp_id =" + list.get(x) + ") ORDER BY date , time";
+                    sql2 = "SELECT * FROM MESSAGE NATURAL JOIN SP WHERE (client_id =" +client_id +" AND sp_id =" + list.get(x) + ") ORDER BY date , time";
                     Statement st2 = conn.createStatement();
                     ResultSet rs2 = st2.executeQuery(sql2);
                     inner = new ArrayList<Message>();

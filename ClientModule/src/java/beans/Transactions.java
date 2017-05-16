@@ -6,7 +6,7 @@ package beans;
  */
 public class Transactions {
 
-    private String transaction_id, status, paid, request_id;
+    private String transaction_id, status, paid, request_id, date;
     private int amount;
 
     public Transactions(String transaction_id, String status, String paid, int amount, String request_id) {
@@ -61,4 +61,12 @@ public class Transactions {
         this.request_id = request_id;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+    
 }

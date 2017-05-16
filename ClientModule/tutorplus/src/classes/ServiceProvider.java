@@ -111,7 +111,7 @@ public class ServiceProvider {
 		 try {
 	            Class.forName("com.mysql.jdbc.Driver");
 
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=12krishnan!";
+	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
 	            Connection conn = DriverManager.getConnection(connUrl);
 
 	            String sql = "SELECT description FROM service JOIN rate using(service_id) where sp_id = '" + this.clientId + "'";
@@ -129,14 +129,16 @@ public class ServiceProvider {
 		 this.subjList = servOut;
 		 
     }
-    
+    public ArrayList<String> getSched(){
+    	return this.schedList; 
+    }
     public void setSchedList(){
     	ArrayList<String> fSched = new ArrayList<String>();
     	String sched = null;
 		 try {
 	            Class.forName("com.mysql.jdbc.Driver");
 
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=12krishnan!";
+	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
 	            Connection conn = DriverManager.getConnection(connUrl);
 
 	            String sql = "SELECT time FROM schedule where sp_id ='" + this.clientId +"'";

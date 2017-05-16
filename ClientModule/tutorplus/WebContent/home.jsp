@@ -83,7 +83,7 @@
                   <div class="white-box" >
                                 <h3 class="box-title">Instructors</h3> 
                             <div class="table-responsive">
-                                <div class="col-lg-4 col-xs-12">
+                                <div class="col-lg-12 col-xs-12">
                         
                             
                            

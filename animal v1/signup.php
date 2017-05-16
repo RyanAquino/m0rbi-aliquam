@@ -53,7 +53,9 @@
   
          if(mysqli_num_rows($allSpAccounts) >= 1 || mysqli_num_rows($allClient) >= 1  ){
 
-               echo "Username already taken! Please Try Again.";
+               echo "<div class='alert'>"; 
+              echo "Username already taken! Please Try Again.";
+              echo "</div>";
 
 
           }else{
@@ -94,10 +96,15 @@
           $allSpAccounts = mysqli_query($connect,"SELECT username FROM sp WHERE username = '$username'");
 
          if(mysqli_num_rows($allClient) >= 1 || mysqli_num_rows($allSpAccounts) >= 1){
+              echo "<div class='alert'>"; 
               echo "Username already taken! Please Try Again.";
+              echo "</div>";
          }else{
             $registerClient = mysqli_query($connect, $clientReg);    
             header("location:index.php");
+            echo "<div class='alert'>"; 
+            echo "Registration Successful!.";
+            echo "</div>"; 
             }
             
         }else{

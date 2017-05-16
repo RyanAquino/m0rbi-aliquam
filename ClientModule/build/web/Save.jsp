@@ -10,7 +10,7 @@
                 Statement s = null;
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
-                int userId = (Integer) session.getAttribute("userName");
+                String userId = (String) session.getAttribute("userName");
                 String sql = "SELECT * FROM client where client_id = " + userId + "";
 	        Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql);

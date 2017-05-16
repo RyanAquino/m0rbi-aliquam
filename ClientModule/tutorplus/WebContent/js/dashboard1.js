@@ -1,15 +1,7 @@
  $(document).ready(function () {
      "use strict";
      // toat popup js
-     $.toast({
-         heading: 'Welcome to Tutor A+',
-         text: 'How are you today?',
-         position: 'top-right',
-         loaderBg: '#fff',
-         icon: 'warning',
-         hideAfter: 3500,
-         stack: 6
-     })
+
 
 
      //ct-visits

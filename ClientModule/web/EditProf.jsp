@@ -9,7 +9,7 @@
 
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
-                int userId = (Integer) session.getAttribute("userName");
+                String userId = (String) session.getAttribute("userName");
                 String sql = "SELECT * FROM client where client_id = " + userId + "";
 	        Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
@@ -125,7 +125,9 @@
                     <li>
                         <a href="Transactions.jsp" class="waves-effect"><i class="fa fa-money fa-fw" aria-hidden="true"></i>Transactions</a>
                     </li>
-
+                    <li>
+                        <a href="logout.jsp" class="waves-effect"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>

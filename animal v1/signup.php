@@ -100,10 +100,9 @@
               echo "Username already taken! Please Try Again.";
               echo "</div>";
          }else{
-            $registerClient = mysqli_query($connect, $clientReg);    
-            header("location:index.php");
+            $registerClient = mysqli_query($connect, $clientReg);   
             echo "<div class='alert'>"; 
-            echo "Registration Successful!.";
+            echo "Registration Successful!";
             echo "</div>"; 
             }
             

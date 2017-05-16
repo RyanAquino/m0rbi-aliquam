@@ -34,28 +34,37 @@
                         <h3 class="box-title">Messages</h3>
                         <div class="comment-center p-t-10">
 
-                            <% ArrayList<Message> m = (ArrayList<Message>) request.getAttribute("msgs"); %>
-                            <% ArrayList<ArrayList<Message>> outer = (ArrayList<ArrayList<Message>>) request.getAttribute("outer"); %>
-                            <% ArrayList<Message> inner = (ArrayList<Message>) request.getAttribute("inner"); %>
 
-                            <% for (int x = 0; x < outer.size(); x++) {%>
-                                <% for (int y = 0; y < inner.size(); y++) {%>
-                            <!-------------------------------------------------------------------------------------------->
-                            <!-- link ni aj here -->
-                            
-                            <a href="ViewMessages?id=<%= outer.get(x).get(y).getSp_id() %>" ><div class="comment-body">
-                                    <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
-                                    </div>
-                                    <div class="mail-contnet">
-                                        <h5><%= outer.get(x).get(y).getFirstname()%> <%= outer.get(x).get(y).getLastname()%></h5><span class="time">
-                                            <%= outer.get(x).get(y).getDate() %>
-                                        </span>
-                                        <br/><span class="mail-desc"><%= outer.get(x).get(y).getMsg() %></span>  
-                                    </div>
-                                </div></a>
 
+
+                            <div class="alert alert-info msg-date">
+                                <strong>Today</strong>
+                            </div>
+                            <% ArrayList<Message> m = (ArrayList<Message>) request.getAttribute("msgs"); %>                            
+                            <% for (int x = 0; x < m.size(); x++) {%>
+
+                            <div class="media msg">
+                                <a class="pull-left" href="#">
+                                    <img class="img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 32px; height: 32px;" src="../plugins/images/users/pawandeep.jpg" >
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right time"><i class="fa fa-clock-o"></i><%= m.get(x).getTime()%></small>
+
+                                    <h5 class="media-heading"><%= m.get(x).getFirstname()%> <%= m.get(x).getLastname()%></h5>
+                                    <small class="col-lg-10"><%= m.get(x).getMsg()%></small>
+                                </div>
+                            </div>
                             <% }%>
-                            <% }%>
+
+                            <div class="send-wrap ">
+
+                                <textarea class="form-control send-message" rows="3" placeholder="Write a reply..."></textarea>
+
+
+                            </div>
+                            <div class="btn-panel pull-right">
+                                <a href="" class=" col-lg-4 text-center btn send-message-btn pull-in" role="button"><button type="submit" class="btn-rounded btn btn-default btn-outline"><i class="fa fa-send"></i> Send Message</a>
+                            </div>
 
 
                         </div>

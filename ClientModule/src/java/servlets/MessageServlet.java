@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -107,8 +105,10 @@ public class MessageServlet extends HttpServlet {
                         m.setDate(rs2.getString("date"));
                         m.setStatus(rs2.getString("status"));
 
-                        sp.setFirstName(rs2.getString("firstname"));
-                        sp.setLastName(rs2.getString("lastname"));                        
+                        
+                        
+                        m.setFirstname(rs2.getString("firstname"));
+                        m.setLastname(rs2.getString("lastname"));                        
                         
                         
                         inner.add(m);

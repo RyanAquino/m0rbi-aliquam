@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<!--
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    -->
+<!--    <context-param>
+        <param-name>connstr</param-name>
+        <param-value>jdbc:mysql://localhost:3306/tutorial?autoReconnect=true</param-value>
+    </context-param>-->
+    
+    
+    
+      <context-param>
+    <param-name>url</param-name>
+    <param-value>jdbc:mysql://localhost/</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>database</param-name>
+  	<param-value>tutorials</param-value>
+  </context-param>
+    
+ <context-param>
+  	<param-name>user_name</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+    
+    <context-param>
+        <param-name>password</param-name>
+        <param-value/>
+    </context-param>
+    
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>listeners.StartupListener</listener-class>
+    </listener>
+    
+<!--    <servlet>
+        <servlet-name>Message</servlet-name>
+        <servlet-class>servlets.MessageServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Message </servlet-name>
+        <url-pattern>/messages</url-pattern>
+    </servlet-mapping>
+    -->
+    <welcome-file-list>
+        <welcome-file>
+            HomePage
+        </welcome-file>
+    </welcome-file-list>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

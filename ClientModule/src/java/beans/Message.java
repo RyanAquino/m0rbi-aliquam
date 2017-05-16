@@ -6,7 +6,7 @@ package beans;
  */
 public class Message {
 
-    private String msg_id, sp_id, client_id, sender, msg, time, date, status;
+    private String msg_id, sp_id, client_id, sender, msg, time, date, status, firstname, lastname;
 
     public Message(String msg_id, String sp_id, String client_id, String sender, String msg, String time, String date, String status) {
         this.msg_id = msg_id;
@@ -86,5 +86,23 @@ public class Message {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+    
+    
 
 }

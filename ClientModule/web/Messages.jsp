@@ -42,11 +42,12 @@
                                 <% for (int y = 0; y < inner.size(); y++) {%>
                             <!-------------------------------------------------------------------------------------------->
                             <!-- link ni aj here -->
-                            <a href="#"><div class="comment-body">
+                            
+                            <a href="ViewMessages?id=<%= outer.get(x).get(y).getSp_id() %>" ><div class="comment-body">
                                     <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
                                     </div>
                                     <div class="mail-contnet">
-                                        <h5><%= outer.get(x).get(y).get() %></h5><span class="time">
+                                        <h5><%= outer.get(x).get(y).getFirstname()%> <%= outer.get(x).get(y).getLastname()%></h5><span class="time">
                                             <%= outer.get(x).get(y).getDate() %>
                                         </span>
                                         <br/><span class="mail-desc"><%= outer.get(x).get(y).getMsg() %></span>  
@@ -57,32 +58,6 @@
                             <% }%>
 
 
-                            <div class="comment-body">
-                                <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
-                                </div>
-                                <div class="mail-contnet">
-                                    <h5>Danielle Saringan</h5><span class="time">May 20 2016   10:20 AM</span>
-                                    <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span>  
-                                </div>
-                            </div>
-
-                            <div class="comment-body">
-                                <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
-                                </div>
-                                <div class="mail-contnet">
-                                    <h5>Jessa Pulido</h5><span class="time">May 20 2016   10:20 AM</span>
-                                    <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span>  
-                                </div>
-                            </div>
-
-                            <div class="comment-body">
-                                <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle">
-                                </div>
-                                <div class="mail-contnet">
-                                    <h5>Danavie Sayco</h5><span class="time">May 20 2016   10:20 AM</span>
-                                    <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span>  
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

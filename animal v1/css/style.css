@@ -459,7 +459,7 @@ label {
 
 /* hide input */
 input.radio:empty {
-	margin-left: -999px;
+	margin-left: -1500px;
 }
 
 /* style label */

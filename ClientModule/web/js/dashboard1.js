@@ -1,7 +1,15 @@
  $(document).ready(function () {
      "use strict";
      // toat popup js
-
+     $.toast({
+         heading: 'Welcome to Ample admin',
+         text: 'Use the predefined ones, or specify a custom position object.',
+         position: 'top-right',
+         loaderBg: '#fff',
+         icon: 'warning',
+         hideAfter: 3500,
+         stack: 6
+     })
 
 
      //ct-visits
@@ -73,20 +81,3 @@
      });
      sparklineLogin();
  });
- 
- function addParameter(){
-	 var select = document.querySelector("#mySelect");
-	 var strUser = select.options[select.selectedIndex].text;
-	 var paramName = "&serv=";
-	 var currentUrl = window.location.href;
-	 currentUrl = currentUrl.toString();
-	 
-	 while(currentUrl.includes('&')){
-		 currentUrl = currentUrl.substring(0 , currentUrl.length - 1 )  ;  
-	}	 
-	 
-	 var output = currentUrl.concat(paramName,strUser);
-
-	 window.location.href = output;
-	 
- }

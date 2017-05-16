@@ -1,11 +1,5 @@
 package classes;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 public class ServiceProvider {
 	int clientId;
 	String reqStatus;
@@ -18,8 +12,6 @@ public class ServiceProvider {
 	String password;
 	String email;
 	String contact;
-	ArrayList<String> subjList;
-	ArrayList<String> schedList;
 	
 	//default constructor
 	public ServiceProvider(){	
@@ -28,7 +20,7 @@ public class ServiceProvider {
 	public void setId(int clientId){
 		this.clientId = clientId;
 	}
-	public void setReauest(String reqStatus){
+	public void setId(String reqStatus){
 		this.reqStatus = reqStatus;
 	}
 	
@@ -60,10 +52,7 @@ public class ServiceProvider {
 	}
 	
 	public void setEmail(String email){
-		this.email = email;
-	}
-	public String getContact(){
-		return this.contact;
+		this.birthday = password;
 	}
 	
 	public int getId(){
@@ -97,64 +86,8 @@ public class ServiceProvider {
 	public String getUsername(){
 		return this.username;
 	}
-	public String getEmail(){
-		return this.email;
+	public String getBdirthDay(){
+		return this.birthday;
 	}
 
-
-    public ArrayList<String> getSubjList(){
-    	return this.subjList;
-    }
-    public void setServList(){
-    	ArrayList<String> servOut = new ArrayList<String>();
-    	String outServ = null;
-		 try {
-	            Class.forName("com.mysql.jdbc.Driver");
-
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
-	            Connection conn = DriverManager.getConnection(connUrl);
-
-	            String sql = "SELECT description FROM service JOIN rate using(service_id) where sp_id = '" + this.clientId + "'";
-	            Statement st = conn.createStatement();
-	            ResultSet rs = st.executeQuery(sql);
-
-	            while(rs.next()){
-	            	outServ = rs.getString(1);
-	            	servOut.add(outServ);
-	            }
-	            
-	        } catch (Exception e){
-	        	e.printStackTrace();
-	        }
-		 this.subjList = servOut;
-		 
-    }
-    public ArrayList<String> getSched(){
-    	return this.schedList; 
-    }
-    public void setSchedList(){
-    	ArrayList<String> fSched = new ArrayList<String>();
-    	String sched = null;
-		 try {
-	            Class.forName("com.mysql.jdbc.Driver");
-
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
-	            Connection conn = DriverManager.getConnection(connUrl);
-
-	            String sql = "SELECT time FROM schedule where sp_id ='" + this.clientId +"'";
-	            Statement st = conn.createStatement();
-	            ResultSet rs = st.executeQuery(sql);
-
-	            while(rs.next()){
-	            	sched = rs.getString(1);
-	            	fSched.add(sched);
-	            }
-	            
-	        } catch (Exception e){
-	        	e.printStackTrace();
-	        }
-		 this.schedList = fSched;
-		 
-    }
-//SELECT service_id FROM rate WHERE sp_id = this.id;
 }

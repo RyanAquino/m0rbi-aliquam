@@ -37,7 +37,7 @@ public class Category {
 		 try {
 	            Class.forName("com.mysql.jdbc.Driver");
 
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
+	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=12krishnan!";
 	            Connection conn = DriverManager.getConnection(connUrl);
 
 	            String sql = "SELECT description FROM service where category = '" + this.category + "'";
@@ -60,7 +60,7 @@ public class Category {
 		 try {
 	            Class.forName("com.mysql.jdbc.Driver");
 
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
+	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=12krishnan!";
 	            Connection conn = DriverManager.getConnection(connUrl);
 
 	            String sql = "SELECT count(category) AS 'Number of Services Offered' from service where category = '" + this.category + "'";

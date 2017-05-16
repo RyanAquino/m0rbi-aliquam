@@ -43,7 +43,7 @@ public class Categories extends HttpServlet {
 
 	            Class.forName("com.mysql.jdbc.Driver");
 	            
-	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=";
+	            String connUrl = "jdbc:mysql://localhost/tutorial?user=root&password=12krishnan!";
 	            Connection conn = DriverManager.getConnection(connUrl);
 
 	            String sql = "SELECT * FROM service WHERE category=' Music' ";

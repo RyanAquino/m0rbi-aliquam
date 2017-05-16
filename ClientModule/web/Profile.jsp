@@ -6,11 +6,12 @@
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    HttpSession sess = request.getSession(false);
     if(session != null && session.getAttribute("userName") != null){
-        
+    
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
-                String userId = (String) session.getAttribute("userName");
+                int userId = (Integer) session.getAttribute("userName");
                 String sql = "SELECT * FROM client where client_id = " + userId + "";
 	        Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql);

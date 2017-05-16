@@ -41,7 +41,7 @@ public class TransactionsServlet extends HttpServlet {
 //        if (session == null || session.getAttribute("user") == null) {
 //            String url = response.encodeRedirectURL("NoSession.jsp");
 //            response.sendRedirect(url);
-//        } else {
+//        }
             response.setContentType("text/html");
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -51,10 +51,7 @@ public class TransactionsServlet extends HttpServlet {
 
             PrintWriter out = response.getWriter();
 
-            
-            String client_id = "1";
-            
-            String sql = "SELECT * FROM TRANSACTION t JOIN request r on t.request_id = r.request_id where client_id =" +client_id;
+            String sql = "SELECT * FROM TRANSACTION NATURAL JOIN request WHERE client_id = 2";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             try {
@@ -64,7 +61,6 @@ public class TransactionsServlet extends HttpServlet {
                     transactions.setTransaction_id(rs.getString("transaction_id"));
                     transactions.setStatus(rs.getString("status"));
                     transactions.setPaid(rs.getString("paid"));
-                    transactions.setDate(rs.getString("date"));
                     transactions.setAmount(rs.getInt("amount"));
                     transactions.setRequest_id(rs.getString("request_id"));
                     transactionsList.add(transactions);

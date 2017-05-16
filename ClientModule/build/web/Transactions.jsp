@@ -144,7 +144,7 @@
                                             <% for(int i = 0; i < tList.size(); i++) { %>
                                             <tr> 
                                                 <td><%= tList.get(i).getTransaction_id() %></td>
-                                                <td><%= tList.get(i).getDate() %></td>
+                                                <td></td>
                                                 <td><%= tList.get(i).getPaid() %></td>
                                                 <td><%= tList.get(i).getAmount() %></td>
 

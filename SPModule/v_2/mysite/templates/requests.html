@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Tutor A+ | Requests{% endblock %}
+{% block subtitle %}Requests{% endblock %}
+{% block body %}
+{% load staticfiles %}
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
+                            </div>
+                            <h3 class="box-title">Pending Requests</h3>
+                            <div class="comment-center p-t-10">
+                                {% for request in all_request %}
+                                <div class="comment-body">
+                                    <div class="user-img"> 
+                                        <img src="{% static 'plugins/images/users/pawandeep.jpg' %}" alt="user" class="img-circle">
+                                    </div>
+                                    
+                                    
+                                    <div class="mail-contnet">
+                                        <h5>{{client|get_client_req:request.client_id}}</h5><span class="time">{{request.date}} {{request.time}}</span>
+                                        <br/><span class="mail-desc1">Service: {{request|get_service_req:request.sched_id}} Lessons</span><br><span class="mail-desc1">Schedule: {{sched|get_sched_day:request.sched_id}} @ {{sched|get_sched_time:request.sched_id}}</span><br>
+                                        
+                                        <form action="{% url 'requests:verdict' request.request_id %}" method="post">
+                                            {% csrf_token %}
+                                            <input type ="submit" class="btn btn btn-rounded btn-default btn-outline m-r-5" value ="Accept" name="accept">
+                                            <input type ="submit" class="btn btn btn-rounded btn-default btn-outline m-r-5" value ="Reject" name="reject">
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+<<<<<<< HEAD
+=======
+                                {% empty %}
+                                <div class="comment-body">
+                                    <p>No pending requests</p>
+                                </div>
+>>>>>>> c110f0c527a240f94b9f485f3157562d7365a6a9
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

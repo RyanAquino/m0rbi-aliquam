@@ -1408,7 +1408,7 @@ textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #c36464;
     text-decoration: none
 }
 
@@ -1687,7 +1687,7 @@ mark {
 }
 
 .text-primary {
-    color: #337ab7
+    color: #c36464    
 }
 
 a.text-primary:focus,
@@ -1733,7 +1733,7 @@ a.text-danger:hover {
 
 .bg-primary {
     color: #fff;
-    background-color: #337ab7
+    background-color: #c36464
 }
 
 a.bg-primary:focus,
@@ -5505,11 +5505,13 @@ fieldset[disabled] .navbar-default .btn-link:hover {
 
 .navbar-inverse {
     background-color: #222;
-    border-color: #080808
+    border-color: #080808;
+    width: 100%;
 }
 
 .navbar-inverse .navbar-brand {
     color: #9d9d9d
+        width: 100%;
 }
 
 .navbar-inverse .navbar-brand:focus,

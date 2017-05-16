@@ -160,7 +160,7 @@
        <option value="client">Client</option>    
      </select>
          <br><br>
-      <fieldset>
+      
       <div class="radio-class">   
        <input type="radio" name = sex value = male  class="radio" id="radio1" required/>
        <label for="radio1">I am a Male</label>
@@ -169,7 +169,7 @@
        <input type="radio" name = sex value = female  class="radio" id="radio2" required/>
        <label for="radio2">I am a Female</label>
         </div>
-    </fieldset>
+   
      
 
     <button type="submit" name="register" data-toggle="modal" data-target="#butu">Register</button>

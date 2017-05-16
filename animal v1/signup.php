@@ -154,7 +154,7 @@
     <input type="password" placeholder="Password" name = "userpassword" minlength="6" required/>
     <input type="password" placeholder="Re enter password" name = "userpassword2" required/>
 
-     <select name="usertype">
+     <select name="usertype" class="form-control">
        <option value="choose">Choose role:</option>
        <option value="sp">Service Provider</option>
        <option value="client">Client</option>    

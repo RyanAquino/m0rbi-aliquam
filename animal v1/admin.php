@@ -123,6 +123,7 @@
 
                 <?php
                 include 'sp-table.php';
+                include 'transactions.php'
 
                 ?>
 

@@ -2581,7 +2581,7 @@ ul.common li a:hover {
     display: block;
     margin: 5px 0;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow: scroll;
     white-space: nowrap;
     color: #263238
 }

@@ -44,7 +44,7 @@
                        String sql1 = "UPDATE client " +"SET firstname = '"+ newname + "' " +
                                ", lastname = '"+ newlastname + "' " +
                                ", email = '"+ newemail + "' " + 
-                               ", password = '"+ newpassword + "' " +
+                               ", password = SHA('"+ newpassword + "') " +
                                ", contact = '"+ newcontact +"' " +
                                " WHERE client_id = '" + clientid + "' ";
 s.execute(sql1);

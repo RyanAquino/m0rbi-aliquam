@@ -3,6 +3,10 @@
     Created on : 05 12, 17, 5:49:59 AM
     Author     : Mai Radie
 --%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="beans.Message"%>
 <%@page import="java.util.HashMap"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -37,6 +41,35 @@
 
                             <% String spid = (String) request.getAttribute("spid"); %>
                             <% request.setAttribute("spid", spid);%> 
+                            <%  String client_id = (String) request.getAttribute("client_id"); %>
+
+                            <%
+                                try {
+                                    ResultSet resultset = null;
+
+                                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/tutorial?user=root&password=");
+
+                                    Statement statement = connection.createStatement();
+
+                                    resultset = statement.executeQuery("select concat(firstname, \" \", lastname) from sp natural join request where client_id = 1 and reg_status LIKE 'approve'");
+                            %>
+
+
+                                <select>
+                                    <%  while (resultset.next()) {%>
+                                    <option><%= resultset.getString(1)%></option>
+                                    <% } %>
+                                </select>
+
+
+                            <%
+                                    //**Should I input the codes here?**
+                                } catch (Exception e) {
+                                    out.println("wrong entry" + e);
+                                }
+                            %>
+
+
 
                             <div class="send-wrap ">
                                 <form action="Reply?sp=<%=spid%>" method="post" id="rep">

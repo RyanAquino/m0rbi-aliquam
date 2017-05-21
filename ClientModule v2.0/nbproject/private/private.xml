@@ -12,8 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Lenovo/Desktop/ClientModule%20v2.0/src/java/servlets/ViewMessageServlet.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/ClientModule%20v2.0/web/WriteMessage.jsp</file>
+            <file>file:/C:/Users/Lenovo/Desktop/ClientModule%20v2.0/src/java/servlets/Reply.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/ClientModule%20v2.0/web/Messages.jsp</file>
             <file>file:/C:/Users/Lenovo/Desktop/ClientModule%20v2.0/web/ViewMessages.jsp</file>
+            <file>file:/C:/Users/Lenovo/Desktop/ClientModule%20v2.0/src/java/servlets/WriteMessageServlet.java</file>
         </group>
     </open-files>
 </project-private>

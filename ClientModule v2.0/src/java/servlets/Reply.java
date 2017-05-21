@@ -27,7 +27,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = {"/Reply"})
 public class Reply extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
@@ -64,17 +64,30 @@ public class Reply extends HttpServlet {
                 String connUrl = "jdbc:mysql://localhost:3306/tutorial?user=root&password=";
                 Connection conn = DriverManager.getConnection(connUrl);
 
+                String sql3 = "SELECT * FROM client where client_id = " + client_id;
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql3);
+                String name = null;
+                String lastname = null;
+                if (rs.next()) {
+                    name = rs.getString("firstname");
+                    lastname = rs.getString("lastname");
+                }
+
+                request.setAttribute("name", name);
+                request.setAttribute("lastname", lastname);
+
                 // change bruh
                 String sql = "insert into message(sp_id, client_id, msg, time, date) values (" + spid + "," + client_id + ",\"" + reply + "\",\"" + sdf.format(cal.getTime()) + "\", DATE_FORMAT('" + cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DAY_OF_MONTH) + "', '%d,%m,%d'))";
 
-                Statement st = conn.createStatement();
+                 st = conn.createStatement();
 
                 st.executeUpdate(sql);
 
                 String sql2 = "SELECT msg_id, m.sp_id, m.client_id,sender,msg,time,date,status, c.firstname as clientFN, c.lastname as clientLN, s.firstname as spFN, s.lastname as spLN from client c join MESSAGE m on c.client_id = m.client_id join sp s on s.sp_id = m.sp_id where c.client_id =" + client_id + " and m.sp_id=" + spid + " order by date asc";
 
                 st = conn.createStatement();
-                ResultSet rs = st.executeQuery(sql2);
+                 rs = st.executeQuery(sql2);
                 ArrayList<Message> msgList = new ArrayList<Message>();
                 try {
 
@@ -118,8 +131,9 @@ public class Reply extends HttpServlet {
 
 //                request.setAttribute("outer", outer);
 //                request.setAttribute("inner", inner);
-                    RequestDispatcher rd = request.getRequestDispatcher("ViewMessages.jsp");
-                    rd.forward(request, response);
+//                    RequestDispatcher rd = request.getRequestDispatcher("ViewMessages.jsp");
+//                    rd.forward(request, response);
+                    response.sendRedirect("ViewMessages?id=" +spid);
 
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
@@ -128,8 +142,6 @@ public class Reply extends HttpServlet {
 
             } catch (Exception e) {
 
-             
-             
                 response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         } else {

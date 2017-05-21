@@ -19,8 +19,11 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="#">Dashboard</a></li>
-                    <li class="active">Messages</li>
+                    <li class="active">Messages</li> 
+
+                    <li>
                 </ol>
+
             </div>
         </div>
         <!-- /.row -->
@@ -32,7 +35,8 @@
                         <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
                         </div>
                         <h3 class="box-title">Messages</h3>
-                        <div class="comment-center p-t-10">
+                        <a href="WriteMessage"><button class="btn btn-success" style="float: right">Compose a Message</button></a>
+                        <div class="comment-center p-t-10" >
 
 
 
@@ -47,7 +51,7 @@
 
                             <div class="media msg">
                                 <a class="pull-left" href="#">
-<!--                                    <img class="img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 32px; height: 32px;" src="../plugins/images/users/pawandeep.jpg" >-->
+                                    <!--                                    <img class="img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 32px; height: 32px;" src="../plugins/images/users/pawandeep.jpg" >-->
                                 </a>
                                 <div class="media-body">
                                     <small class="pull-right time"><i class="fa fa-clock-o"></i><%= m.get(x).getTime()%></small>
@@ -59,7 +63,7 @@
                             <% }%>
 
                             <div class="send-wrap ">
-                                <form action="Reply?sp=<%=spid%>" method="get" id="rep">
+                                <form action="Reply?sp=<%=spid%>" method="post" id="rep">
                                     <input class="form-control send-message" placeholder="Write a reply..." name="rep"/>
                                     <input type="hidden" class="form-control send-message" name="spid" value="<%=spid%>"/>
                                     <div class="btn-panel pull-right">

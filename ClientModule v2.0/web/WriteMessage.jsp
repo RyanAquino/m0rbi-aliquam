@@ -31,11 +31,25 @@
                     <div class="white-box">
                         <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
                         </div>
-                        <h3 class="box-title">No messages.</h3>
-                        <button class="btn btn-success" style="float: right">Compose a Message</button>
+                        <h3 class="box-title">Messages</h3>
+                        <a href="WriteMessage"><button class="btn btn-success" style="float: right">Compose a Message</button></a>
                         <div class="comment-center p-t-10">
 
-                         
+                            <% String spid = (String) request.getAttribute("spid"); %>
+                            <% request.setAttribute("spid", spid);%> 
+
+                            <div class="send-wrap ">
+                                <form action="Reply?sp=<%=spid%>" method="post" id="rep">
+                                    <input class="form-control send-message" placeholder="Write a message..." name="rep"/>
+                                    <input type="hidden" class="form-control send-message" name="spid" value="<%=spid%>"/>
+                                    <div class="btn-panel pull-right">
+                                        <a href="Reply?sp=<%=spid%>" class=" col-lg-4 text-center btn send-message-btn pull-in" role="button"><button type="submit" class="btn-rounded btn btn-default btn-outline"><i class="fa fa-send"></i> Send Message</button></a>
+                                    </div>
+                                </form>
+
+                            </div>
+
+
 
 
                         </div>
@@ -46,7 +60,7 @@
         <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-    <footer class="footer text-center"> 2017 &copy; Tutor A+ brought to you by Group 3 </footer>
+    <footer class="footer text-center"> 2017 &copy; Mansanas Tutorials brought to you by Group 3 </footer>
 </div>
 <!-- /#page-wrapper -->
 

@@ -61,6 +61,7 @@ public class WriteMessageServlet extends HttpServlet {
 
                 request.setAttribute("name", name);
                 request.setAttribute("lastname", lastname);
+                request.setAttribute("client_id", client_id);
 
                 
                 // ******************************************* //

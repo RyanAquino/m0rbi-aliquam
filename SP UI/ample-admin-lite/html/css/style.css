@@ -585,6 +585,11 @@ hr {
 .dropdown-menu>li>a {
     padding: 9px 20px
 }
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 .dropdown-menu>li>a:focus,
 .dropdown-menu>li>a:hover {
     background: #f7fafc
@@ -714,7 +719,10 @@ pre {
 .container-fluid {
     padding-left: 25px;
     padding-right: 25px;
-    padding-bottom: 15px
+    padding-bottom: 15px;
+}
+.fixed{
+    position:fixed;
 }
 .btn-group-vertical>.btn:first-child:not(:last-child),
 .btn-group-vertical>.btn:last-child:not(:first-child) {
@@ -826,10 +834,10 @@ pre {
     color: rgba(0, 0, 0, .5)
 }
 .bg-title .breadcrumb a:hover {
-    color: #000
+    color: #000;
 }
 .bg-title .breadcrumb .active {
-    color: #2cabe3
+    color: #2cabe3;
 }
 .logo b {
     height: 60px;
@@ -867,6 +875,9 @@ pre {
 }
 .navbar-top-links {
     margin-right: 0;
+}
+.navbar-top-links2 {
+    margin-left: 0;
 }
 .navbar-top-links .badge {
     position: absolute;

@@ -32,7 +32,7 @@
                         <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
                         </div>
                         <h3 class="box-title">Messages</h3>
-                        <a href="WriteMessage"><button class="btn btn-success" style="float: right">Compose a Message</button></a>
+                        <a href="WriteMessage"><button class="btn-rounded btn btn-default btn-outline" style="float: right">Compose a Message</button></a>
                         <div class="comment-center p-t-10">
 
                             <% ArrayList<Message> m = (ArrayList<Message>) request.getAttribute("msgs"); %>

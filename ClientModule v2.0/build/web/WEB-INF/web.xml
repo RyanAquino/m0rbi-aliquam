@@ -38,6 +38,25 @@
         <listener-class>listeners.StartupListener</listener-class>
     </listener>
     
+<servlet>
+    <servlet-name>GetComboServlet</servlet-name>
+    <servlet-class>servlets.GetComboServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetComboServlet</servlet-name>
+    <url-pattern>/comboData</url-pattern>
+  </servlet-mapping>
+  
+
+<!--  <servlet>
+    <servlet-name>Reply</servlet-name>
+    <servlet-class>servlets.Reply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reply</servlet-name>
+    <url-pattern>/Reply</url-pattern>
+  </servlet-mapping>-->
+    
 <!--    <servlet>
         <servlet-name>Message</servlet-name>
         <servlet-class>servlets.MessageServlet</servlet-class>

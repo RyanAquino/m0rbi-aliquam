@@ -38,7 +38,8 @@ public class WriteMessageServlet extends HttpServlet {
             response.setDateHeader("Expires", 0);
             response.setContentType("text/html");
 
-            String spid = request.getParameter("id");
+            String spid = request.getParameter("fruit");
+
             String client_id = (String) session.getAttribute("userName");
             Message m = null;
             ServiceProvider sp = null;
@@ -63,28 +64,25 @@ public class WriteMessageServlet extends HttpServlet {
                 request.setAttribute("lastname", lastname);
                 request.setAttribute("client_id", client_id);
 
-                
                 // ******************************************* //
-                
                 // OPTIONS OF THE CLIENT //
-                
                 // queries all service providers that appoved the client's request
-                String sql = "select * from sp natural join request where client_id = "+client_id +" and reg_status LIKE 'approve'";
+                String sql = "select * from sp natural join request where client_id = " + client_id + " and reg_status LIKE 'approve'";
 
                 st = conn.createStatement();
                 rs = st.executeQuery(sql);
-                
-                request.setAttribute("rs",rs);
+
+                request.setAttribute("rs", rs);
                 ArrayList<Message> msgList = new ArrayList<Message>();
                 try {
 
                     rs.close();
                     st.close();
                     conn.close();
-                    
+
                     request.setAttribute("spid", spid);
 
-                    RequestDispatcher rd = request.getRequestDispatcher("WriteMessage.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 
                     rd.forward(request, response);
 

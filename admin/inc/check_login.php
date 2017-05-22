@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
 				$_SESSION['user_id'] = $rowsClient['client_id'];
 				$_SESSION['user_name'] = $rowsClient['username'];
 			
-			header("location:http://192.168.1.13:8080/ClientModule/LandingPage?test=" . $rowsClient['client_id'] );
+			header("location:http://localhost:8084/ClientModule/LandingPage?test=" . $rowsClient['client_id'] );
 			}else{
                 echo "<div class='alert'>"; 
                 echo "Account not approved by the administrator!";

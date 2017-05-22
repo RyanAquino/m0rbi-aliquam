@@ -33,11 +33,11 @@
                                 <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
                                 </div>
                                 <h3 class="box-title">Messages</h3>
-                                <a href=""><button class="btn btn-success" style="float: right">Compose a Message</button></a>
+                                <a href="WriteMessage"><button class="btn btn-success" style="float: right">Compose a Message</button></a>
                                 <div class="comment-center p-t-10">
                                     <% // String spid = (String) request.getParameter("spid"); %>
                                     <% //request.setAttribute("spid", spid);%> 
-                                    <% // String client_id = (String) request.getAttribute("client_id"); %>
+
 
                                     <%
                                         try {
@@ -46,7 +46,9 @@
                                             String connUrl = "jdbc:mysql://localhost:3306/tutorial?user=root&password=";
                                             Connection conn = DriverManager.getConnection(connUrl);
 
-                                            String sql3 = "select concat(firstname, \" \", lastname), sp_id from sp natural join request where client_id = 1 and reg_status LIKE 'approve'";
+                                            String client_id = (String) request.getAttribute("client_id");
+                                            
+                                            String sql3 = "select concat(firstname, \" \", lastname), sp_id from sp natural join request where client_id =" + client_id + " and reg_status LIKE 'approve'";
                                             Statement st = conn.createStatement();
 
                                             ResultSet rs = st.executeQuery(sql3);
@@ -55,7 +57,7 @@
                                     <form action="Reply" method="get">
                                         <table align="center">
                                             <tr>
-                                                <td>Select An Item :</td>
+                                                <td>Select a Service Provider :</td>
                                                 <td> <select name="sp">
                                                         <%  while (rs.next()) {%>
                                                         <option value="<%= rs.getString(2)%>"><%= rs.getString(1)%></option>
@@ -64,9 +66,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <input class="form-control send-message" placeholder="Write a message..." name="rep"/>
-                                                <td><input type="submit" value="Send"></td>
-                                                <td></td>
+                                            <input class="form-control send-message" placeholder="Write a message..." name="rep"/>
+                                            <td><input type="submit" value="Send"></td>
+                                            <td></td>
                                             </tr>
                                         </table>
                                     </form>

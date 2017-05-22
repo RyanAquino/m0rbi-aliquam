@@ -37,8 +37,10 @@
                         <h3 class="box-title">Messages</h3>
                         <a href="WriteMessage"><button class="btn btn-success" style="float: right">Compose a Message</button></a>
                         <div class="comment-center p-t-10" >
-                            <br>
-                            <br>
+
+
+
+
                             <div class="alert alert-info msg-date">
                                 <strong>Today</strong>
                             </div>

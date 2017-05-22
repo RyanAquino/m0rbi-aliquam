@@ -1,16 +1,3 @@
-<%
-    if (session != null && session.getAttribute("userName") != null) {
-   
-    } else {
-
-        response.sendRedirect("NoSession.jsp");
-        
-    }
-
-
-%>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -52,7 +52,7 @@
                 <h1 class="text-danger">OOPS!</h1>
                 <h3 class="text-uppercase">You are not logged in yet :(</h3>
                 <p class="text-muted m-t-30 m-b-30">Please login first.</p>
-                <a href="HomePage" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
+                <a href="http://mansanas.org/admin/index.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
             <footer class="footer text-center">2017 © Ample Admin.</footer>
         </div>
     </section>

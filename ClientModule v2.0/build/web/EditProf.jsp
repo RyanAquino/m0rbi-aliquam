@@ -8,6 +8,11 @@
 <%
     session = request.getSession(false);
     if (session != null && session.getAttribute("userName") != null) {
+        
+        
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setDateHeader("Expires", 0);
     
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial", "root", "");
